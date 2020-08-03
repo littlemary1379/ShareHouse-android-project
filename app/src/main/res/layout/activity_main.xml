@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <include
@@ -104,8 +105,8 @@
                 android:id="@+id/layout_advantage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:stretchColumns="*"
                 android:layout_margin="10dp"
+                android:stretchColumns="*"
                 app:layout_constraintTop_toBottomOf="@id/layout_searchbox">
 
                 <TableRow>
@@ -118,7 +119,7 @@
                         android:layout_marginBottom="10dp"
                         android:layout_span="2"
                         android:text="\' 살아보고는 싶은데, 이것 저것 걱정이 많다면? \'"
-                        android:textSize="17sp"/>
+                        android:textSize="17sp" />
                 </TableRow>
 
                 <TableRow>
@@ -153,157 +154,154 @@
                     </LinearLayout>
 
                     <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/border_all">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/ic_giftcartd_mainchorale"
-                        android:layout_marginTop="7dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_gravity="center"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:layout_margin="10dp"
-                        android:text="가심비 저격"
-                        android:textStyle="bold"
-                        android:textSize="14sp"
-                        android:fontFamily="@font/notosanskr_bold"
-                        android:includeFontPadding="false"
-                        />
-
-                </LinearLayout>
-
-            </TableRow>
-
-                <TableRow>
-
-                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:layout_margin="5dp"
-                        android:background="@drawable/border_all">
+                        android:background="@drawable/border_all"
+                        android:orientation="vertical">
 
                         <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/ic_mappick_mainchorale"
+                            android:layout_gravity="center"
                             android:layout_marginTop="7dp"
                             android:layout_marginBottom="5dp"
-                            android:layout_gravity="center"/>
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_giftcartd_mainchorale" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
                             android:layout_margin="10dp"
-                            android:text="자유로운 이동"
-                            android:textStyle="bold"
-                            android:textSize="14sp"
                             android:fontFamily="@font/notosanskr_bold"
                             android:includeFontPadding="false"
-                            />
+                            android:text="가심비 저격"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="5dp"
-                android:background="@drawable/border_all">
+                </TableRow>
 
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/ic_house_mainchorale"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_gravity="center"/>
+                <TableRow>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_margin="10dp"
-                    android:text="따로, 또 같이"
-                    android:textStyle="bold"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/notosanskr_bold"
-                    android:includeFontPadding="false"
-                    />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/border_all"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="7dp"
+                            android:layout_marginBottom="5dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_mappick_mainchorale" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:fontFamily="@font/notosanskr_bold"
+                            android:includeFontPadding="false"
+                            android:text="자유로운 이동"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/border_all"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="7dp"
+                            android:layout_marginBottom="5dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_house_mainchorale" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:fontFamily="@font/notosanskr_bold"
+                            android:includeFontPadding="false"
+                            android:text="따로, 또 같이"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
 
                     </LinearLayout>
 
                 </TableRow>
+
                 <TableRow>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:layout_margin="5dp"
-                        android:background="@drawable/border_all">
+                        android:background="@drawable/border_all"
+                        android:orientation="vertical">
 
                         <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/ic_clock_mainchorale"
+                            android:layout_gravity="center"
                             android:layout_margin="5dp"
-                            android:layout_gravity="center"/>
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_clock_mainchorale" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
                             android:layout_margin="10dp"
-                            android:text="빠른 민원 해결"
-                            android:textStyle="bold"
-                            android:textSize="14sp"
                             android:fontFamily="@font/notosanskr_bold"
                             android:includeFontPadding="false"
-                            />
+                            android:text="빠른 민원 해결"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:layout_margin="5dp"
-                        android:background="@drawable/border_all">
+                        android:background="@drawable/border_all"
+                        android:orientation="vertical">
 
                         <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/ic_ticket_mainchorale"
+                            android:layout_gravity="center"
                             android:layout_margin="5dp"
-                            android:layout_gravity="center"/>
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_ticket_mainchorale" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
                             android:layout_margin="10dp"
-                            android:text="다양한 서비스"
-                            android:textStyle="bold"
-                            android:textSize="14sp"
                             android:fontFamily="@font/notosanskr_bold"
                             android:includeFontPadding="false"
-                            />
+                            android:text="다양한 서비스"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
@@ -318,49 +316,220 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorBackgroundGray"
+                android:layout_marginBottom="30sp"
                 android:stretchColumns="*">
+
                 <TableRow>
+
                     <TextView
-                        android:layout_span="2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="15dp"
+                        android:layout_span="2"
                         android:text="우주의 다양한 생활공간을 둘러보세요."
-                        android:textSize="16sp"
-                        />
+                        android:textSize="16sp" />
                 </TableRow>
+
                 <TableRow
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp">
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="따로 또 같이"/>
 
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="따로 또 같이"/>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_lifestyle_detail1"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        >
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/main_lifestyle_1person"
+                            android:scaleType="centerCrop"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            />
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="1인실"
+                            android:fontFamily="@font/notosanskr_bold"
+                            android:textSize="16sp"
+                            android:textColor="@android:color/white"
+                            android:background="#66000000"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_lifestyle_detail2"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        >
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/main_lifestyle_bestprice"
+                            android:scaleType="centerCrop"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            />
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="가성비 하우스"
+                            android:fontFamily="@font/notosanskr_bold"
+                            android:textSize="16sp"
+                            android:textColor="@android:color/white"
+                            android:background="#66000000"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
                 </TableRow>
+
                 <TableRow
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp">
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="따로 또 같이"/>
 
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="따로 또 같이"/>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_lifestyle_detail3"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        >
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/main_lifestyle_worker"
+                            android:scaleType="centerCrop"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            />
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="직장인"
+                            android:fontFamily="@font/notosanskr_bold"
+                            android:textSize="16sp"
+                            android:textColor="@android:color/white"
+                            android:background="#66000000"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_lifestyle_detail4"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        >
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/main_lifestyle_apartment"
+                            android:scaleType="centerCrop"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            />
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="아파트"
+                            android:fontFamily="@font/notosanskr_bold"
+                            android:textSize="16sp"
+                            android:textColor="@android:color/white"
+                            android:background="#66000000"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </TableRow>
 
+                <TableRow
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_lifestyle_detail5"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        >
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/main_lifestyle_nearstation"
+                            android:scaleType="centerCrop"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            />
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="역세권"
+                            android:fontFamily="@font/notosanskr_bold"
+                            android:textSize="16sp"
+                            android:textColor="@android:color/white"
+                            android:background="#66000000"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_lifestyle_detail6"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        >
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/main_lifestyle_nearuniversity"
+                            android:scaleType="centerCrop"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            />
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="대학인근"
+                            android:fontFamily="@font/notosanskr_bold"
+                            android:textSize="16sp"
+                            android:textColor="@android:color/white"
+                            android:background="#66000000"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </TableRow>
             </TableLayout>
         </LinearLayout>
     </ScrollView>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

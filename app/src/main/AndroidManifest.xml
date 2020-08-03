@@ -2,6 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mary.sharehouseproject">
 
+    <uses-permission android:name="android.permission.INTERNET">
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION">
+    </uses-permission>
+
+    <meta-data android:name="com.kakao.sdk.AppKey" android:value="29036625c548a82bda88f83f1d2073b6"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
