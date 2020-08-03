@@ -20,15 +20,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
-
+            android:orientation="vertical">
+            <!--검색 창 시작-->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_searchbox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="@id/layout_advantage">
+                app:layout_constraintBottom_toBottomOf="@id/layout_advantage"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -98,15 +97,268 @@
 
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <!--검색 창 종료-->
+
+            <!-- 장점 창 시작-->
+            <TableLayout
                 android:id="@+id/layout_advantage"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                app:layout_constraintTop_toBottomOf="@id/layout_searchbox"
-                >
+                android:layout_height="wrap_content"
+                android:stretchColumns="*"
+                android:layout_margin="10dp"
+                app:layout_constraintTop_toBottomOf="@id/layout_searchbox">
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_span="2"
+                        android:text="\' 살아보고는 싶은데, 이것 저것 걱정이 많다면? \'"
+                        android:textSize="17sp"/>
+                </TableRow>
+
+                <TableRow>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/border_all"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="7dp"
+                            android:layout_marginBottom="5dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_money_maincholare" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:fontFamily="@font/notosanskr_bold"
+                            android:includeFontPadding="false"
+                            android:text="안전한 계약"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/border_all">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_giftcartd_mainchorale"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:text="가심비 저격"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/notosanskr_bold"
+                        android:includeFontPadding="false"
+                        />
+
+                </LinearLayout>
+
+            </TableRow>
+
+                <TableRow>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/border_all">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_mappick_mainchorale"
+                            android:layout_marginTop="7dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:text="자유로운 이동"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/notosanskr_bold"
+                            android:includeFontPadding="false"
+                            />
+
+                    </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="5dp"
+                android:background="@drawable/border_all">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_house_mainchorale"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:text="따로, 또 같이"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    />
 
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
+
+                </TableRow>
+                <TableRow>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/border_all">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_clock_mainchorale"
+                            android:layout_margin="5dp"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:text="빠른 민원 해결"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/notosanskr_bold"
+                            android:includeFontPadding="false"
+                            />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/border_all">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_ticket_mainchorale"
+                            android:layout_margin="5dp"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:text="다양한 서비스"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/notosanskr_bold"
+                            android:includeFontPadding="false"
+                            />
+
+                    </LinearLayout>
+
+                </TableRow>
+
+
+            </TableLayout>
+            <!--장점 창 종료-->
+
+            <!-- 라이프 스타일 별 방 나누기 시작-->
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorBackgroundGray"
+                android:stretchColumns="*">
+                <TableRow>
+                    <TextView
+                        android:layout_span="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="15dp"
+                        android:text="우주의 다양한 생활공간을 둘러보세요."
+                        android:textSize="16sp"
+                        />
+                </TableRow>
+                <TableRow
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp">
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="따로 또 같이"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="따로 또 같이"/>
+                </TableRow>
+                <TableRow
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp">
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="따로 또 같이"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="따로 또 같이"/>
+                </TableRow>
+
+            </TableLayout>
         </LinearLayout>
     </ScrollView>
 

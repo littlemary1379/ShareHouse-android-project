@@ -10,4 +10,9 @@
         android:fontWeight="800"
         android:font="@font/notosanskr_light"
         />
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="800"
+        android:font="@font/notosanskr_bold"
+        />
 </font-family>
