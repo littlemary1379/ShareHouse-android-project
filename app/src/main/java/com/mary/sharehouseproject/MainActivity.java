@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
@@ -23,7 +25,7 @@ import java.security.NoSuchAlgorithmException;
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "Main_Activity";
 
-    private ImageView ivHamburgerButton;
+    private ImageView ivHamburgerButton, ivToolbarSearchButton;
     private DrawerLayout mainDrawerLayout;
     private Toolbar toolbar;
 
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void init(){
         ivHamburgerButton=findViewById(R.id.iv_hamburgerButton);
+        ivToolbarSearchButton=findViewById(R.id.iv_toolbarSearchButton);
         mainDrawerLayout=findViewById(R.id.layout_mainDrawer);
         toolbar=findViewById(R.id.toolbar_main);
     }
@@ -49,6 +52,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Log.d(TAG, "onClick: 햄버거 버튼 클릭됨");
                 mainDrawerLayout.openDrawer(Gravity.LEFT);
+            }
+        });
+
+        ivToolbarSearchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this, MapActivity.class);
+                startActivity(intent);
             }
         });
     }
