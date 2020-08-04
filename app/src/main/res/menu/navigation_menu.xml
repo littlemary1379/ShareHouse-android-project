@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_brand"
+        android:title="우주 하우스란?"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/menu_housemenual"
+        android:title="입주 안내"
+        app:showAsAction="always"/>
+    <item
+    android:id="@+id/menu_faq"
+    android:title="FAQ"
+    app:showAsAction="always"/>
+    <item
+        android:id="@+id/menu_login"
+        android:title="로그인"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/menu_join"
+        android:title="회원가입"
+        app:showAsAction="always"/>
+</menu>
