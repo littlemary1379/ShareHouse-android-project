@@ -1,4 +1,4 @@
-package com.mary.sharehouseproject.fragment.fragment;
+package com.mary.sharehouseproject.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,11 +12,11 @@ import androidx.fragment.app.Fragment;
 import com.mary.sharehouseproject.R;
 
 
-public class HouseManualViewPager1  extends Fragment {
+public class HouseManualViewPager3 extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v=inflater.inflate(R.layout.housemanual_viewpage1,container,false);
+        View v=inflater.inflate(R.layout.housemanual_viewpage3,container,false);
         return v;
     }
 }

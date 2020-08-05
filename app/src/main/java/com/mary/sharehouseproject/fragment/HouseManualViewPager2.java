@@ -16,7 +16,7 @@ public class HouseManualViewPager2 extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v=inflater.inflate(R.layout.housemanual_viewpage1,container,false);
+        View v=inflater.inflate(R.layout.housemanual_viewpage2,container,false);
         return v;
     }
 }

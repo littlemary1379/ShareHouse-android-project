@@ -30,6 +30,7 @@ import java.security.NoSuchAlgorithmException;
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "Main_Activity";
 
+    //툴바용 전역변수 설정
     private ImageView ivHamburgerButton, ivToolbarSearchButton;
     private DrawerLayout mainDrawerLayout;
     private NavigationView mainNavigationView;
@@ -41,12 +42,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        init();
+        initToolbar();
         setSupportActionBar(toolbar);
-        initListener();
+        initToolbarListener();
     }
 
-    private void init(){
+    //툴바용 전역변수에 값 부여
+    private void initToolbar(){
         ivHamburgerButton=findViewById(R.id.iv_hamburgerButton);
         ivToolbarSearchButton=findViewById(R.id.iv_toolbarSearchButton);
         mainDrawerLayout=findViewById(R.id.layout_mainDrawer);
@@ -54,7 +56,8 @@ public class MainActivity extends AppCompatActivity {
         mainNavigationView=findViewById(R.id.navigation);
     }
 
-    private void initListener(){
+    //툴바 리스너
+    private void initToolbarListener(){
         ivHamburgerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
