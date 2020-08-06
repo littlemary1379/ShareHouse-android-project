@@ -53,9 +53,9 @@ public class MoveInActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
 
-        tabLayout.getTabAt(0).setText("첫번째");
-        tabLayout.getTabAt(1).setText("두번째");
-        tabLayout.getTabAt(2).setText("세번째");
+        tabLayout.getTabAt(0).setText("입주 절차");
+        tabLayout.getTabAt(1).setText("우주 문화");
+        tabLayout.getTabAt(2).setText("제휴 서비스");
 
         initToolbarListener();
 
