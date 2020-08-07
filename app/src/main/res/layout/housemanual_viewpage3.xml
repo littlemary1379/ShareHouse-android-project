@@ -1,11 +1,638 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="서비스 제휴"/>
+        android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorMainChorale">
+
+                <TextView
+                    android:id="@+id/tv_movein_alliance_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:text="우주인, 지구인을 위한 \n 특별한 제휴서비스"
+                    android:textColor="@android:color/white"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_light"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="우주에서는 우주인과 지구인을 위해 \n 다양한 제휴서비스를 제공하고 있답니다."
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_movein_alliance_title" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:text="제휴 대상자"
+                    android:textSize="16sp" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_movein_alliance_User1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/layout_movein_alliance_User2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/tv_movein_alliance_User_title1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_bold"
+                            android:text="우주인 회원"
+                            android:textColor="@color/colorMainChorale"
+                            android:textSize="18dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_movein_alliance_User_content1"
+                            android:layout_width="180dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/colorMainChorale"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="10dp"
+                            android:paddingRight="10dp"
+                            android:paddingBottom="20dp"
+                            android:text="우주에 거주하는 분이 우주인입니다. \n 우주인은 더 특별한 혜택이 있습니다."
+                            android:textColor="@android:color/white"
+                            android:textSize="10dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tv_movein_alliance_User_title1" />
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:layout_marginTop="45dp"
+                            android:background="@drawable/border_cholare_2px"
+                            android:text="우주인 되기"
+                            android:textColor="@color/colorMainChorale"
+                            android:textSize="10dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/tv_movein_alliance_User_content1" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_movein_alliance_User2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/layout_movein_alliance_User1"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/tv_movein_alliance_User_title2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_bold"
+                            android:text="지구인 회원"
+                            android:textColor="@color/colorDarkGray"
+                            android:textSize="18dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_movein_alliance_User_content2"
+                            android:layout_width="180dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/colorDarkGray"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="10dp"
+                            android:paddingRight="10dp"
+                            android:paddingBottom="20dp"
+                            android:text="우주에 안 계시는 분이 지구인입니다. \n 지구인도 혜택이 있습니다."
+                            android:textColor="@android:color/white"
+                            android:textSize="10dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tv_movein_alliance_User_title2" />
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:layout_marginTop="45dp"
+                            android:background="@drawable/border_darkgray_2px"
+                            android:text="지구인 되기"
+                            android:textColor="@color/colorDarkGray"
+                            android:textSize="10dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/tv_movein_alliance_User_content2" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@color/colorMainChorale"
+                android:fontFamily="@font/notosanskr_bold"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:padding="5dp"
+                android:text="우주인 기본 제공 서비스"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_movein_alliance_service1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/layout_movein_alliance_service2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/iv_movein_alliance_service_img1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/movein_alliance_service_img1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/notosanskr_bold"
+                        android:includeFontPadding="false"
+                        android:text="와이파이 제공"
+
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/iv_movein_alliance_service_img1" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_movein_alliance_service2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/layoutmovein_alliance_service3"
+                    app:layout_constraintStart_toEndOf="@id/layout_movein_alliance_service1"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/iv_movein_alliance_service_img2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/movein_alliance_service_img2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/notosanskr_bold"
+                        android:includeFontPadding="false"
+                        android:text="정기청소 서비스"
+
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/iv_movein_alliance_service_img2" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutmovein_alliance_service3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/layout_movein_alliance_service2"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/iv_movein_alliance_service_img3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/movein_alliance_service_img3"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/notosanskr_bold"
+                        android:includeFontPadding="false"
+                        android:text="정기청소 서비스"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/iv_movein_alliance_service_img3" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:background="@color/colorMainChorale"
+                android:fontFamily="@font/notosanskr_bold"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:padding="5dp"
+                android:text="지구인 &amp; 우주인 제휴 혜택"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+            <!--제휴 서비스 시작-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp">
+
+                <!--제휴 서비스 첫 줄 시작-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_movein_alliance_company_detail_package1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <!--제휴 회사 1 시작-->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_movein_alliance_company_detail1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toStartOf="@id/layout_movein_alliance_company_detail2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="spread_inside">
+
+                        <ImageView
+                            android:id="@+id/iv_movein_alliance_service_company_img1"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:src="@drawable/movein_alliance_service_company_img1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_movein_alliance_service_company_title1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_bold"
+                            android:includeFontPadding="false"
+                            android:text="미니레이"
+                            android:textSize="16sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/iv_movein_alliance_service_company_img1" />
+
+                        <TextView
+                            android:id="@+id/tv_movein_alliance_service_company_content1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/notosanskr_light"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:text="작고 컴팩트한 미니빔 \n 28% 할인"
+                            android:textSize="16sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tv_movein_alliance_service_company_title1" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <!--제휴 회사 1 종료-->
+
+                    <!--제휴회사 2 시작-->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_movein_alliance_company_detail2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/layout_movein_alliance_company_detail1"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="spread_inside">
+
+                        <ImageView
+                            android:id="@+id/iv_movein_alliance_service_company_img2"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:src="@drawable/movein_alliance_service_company_img2"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_movein_alliance_service_company_title2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_bold"
+                            android:includeFontPadding="false"
+                            android:text="튜터링"
+                            android:textSize="16sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/iv_movein_alliance_service_company_img2" />
+
+                        <TextView
+                            android:id="@+id/tv_movein_alliance_service_company_content2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/notosanskr_light"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:text="우주인 &amp; 지구인 대상 \n FreePass 15분 \n 2회 수강권 제공"
+                            android:textSize="16sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tv_movein_alliance_service_company_title2" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <!--제휴회사 2 종료-->
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <!--제휴회사 첫 줄 종료-->
+
+                <!--제휴회사 두 번째 줄 시작-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_movein_alliance_company_detail_package2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_movein_alliance_company_detail_package1">
+
+                    <!--제휴회사 3 시작-->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_movein_alliance_company_detail3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toStartOf="@id/layout_movein_alliance_company_detail4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="spread_inside">
+
+                        <ImageView
+                            android:id="@+id/iv_movein_alliance_service_company_img3"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:src="@drawable/movein_alliance_service_company_img3"
+                            android:scaleType="centerCrop"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_movein_alliance_service_company_title3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_bold"
+                            android:includeFontPadding="false"
+                            android:text="이브릭 커피"
+                            android:textSize="16sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/iv_movein_alliance_service_company_img3" />
+
+                        <TextView
+                            android:id="@+id/tv_movein_alliance_service_company_content3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/notosanskr_light"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:text="연남동에 위치한 카페 \n 지구인 30% 할인 \n 우주인 50% 할인"
+                            android:textSize="16sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tv_movein_alliance_service_company_title3" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <!--제휴회사 3 종료-->
+
+                    <!--제휴회사 4 시작-->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_movein_alliance_company_detail4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/layout_movein_alliance_company_detail3"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="spread_inside">
+
+                        <ImageView
+                            android:id="@+id/iv_movein_alliance_service_company_img4"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:src="@drawable/movein_alliance_service_company_img4"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_movein_alliance_service_company_title4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_bold"
+                            android:includeFontPadding="false"
+                            android:text="마타주"
+                            android:textSize="16sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/iv_movein_alliance_service_company_img4" />
+
+                        <TextView
+                            android:id="@+id/tv_movein_alliance_service_company_content4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/notosanskr_light"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:text="짐보관 서비스 \n 우주인 5000원 할인"
+                            android:textSize="16sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tv_movein_alliance_service_company_title4" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <!--제휴회사 4 종료-->
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <!--제휴회사 두 번째 줄 종료-->
+
+                <!--제휴회사 세 번째 줄 시작-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_movein_alliance_company_detail_package3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_movein_alliance_company_detail_package2"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <!--제휴회사 5 시작-->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_movein_alliance_company_detail5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toStartOf="@id/layout_movein_alliance_company_detail6"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="spread_inside">
+
+                        <ImageView
+                            android:id="@+id/iv_movein_alliance_service_company_img5"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:src="@drawable/movein_alliance_service_company_img5"
+                            android:scaleType="centerCrop"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_movein_alliance_service_company_title5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_bold"
+                            android:includeFontPadding="false"
+                            android:text="호텔 더 디자이너스"
+                            android:textSize="16sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/iv_movein_alliance_service_company_img5" />
+
+                        <TextView
+                            android:id="@+id/tv_movein_alliance_service_company_content5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/notosanskr_light"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:text="우주인 대상 \n 디자이너룸, 더블룸 할인"
+                            android:textSize="16sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tv_movein_alliance_service_company_title5" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <!--제휴회사 5 종료-->
+
+                    <!--제휴회사 6 시작-->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_movein_alliance_company_detail6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/layout_movein_alliance_company_detail5"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="spread_inside">
+
+                        <ImageView
+                            android:id="@+id/iv_movein_alliance_service_company_img6"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:src="@drawable/movein_alliance_service_company_img6"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_movein_alliance_service_company_title6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_bold"
+                            android:includeFontPadding="false"
+                            android:text="마타주"
+                            android:textSize="16sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/iv_movein_alliance_service_company_img6" />
+
+                        <TextView
+                            android:id="@+id/tv_movein_alliance_service_company_content6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/notosanskr_light"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:text="침구교체 서비스 \n 우주인 한달 무료 추가"
+                            android:textSize="16sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tv_movein_alliance_service_company_title6" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <!--제휴회사 6 종료-->
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <!--제휴회사 세 번째 줄 종료-->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!--제휴 회사 종료-->
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>

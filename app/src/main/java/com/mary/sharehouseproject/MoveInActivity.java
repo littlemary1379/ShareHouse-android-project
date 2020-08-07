@@ -66,7 +66,7 @@ public class MoveInActivity extends AppCompatActivity {
     private void initToolbar(){
         ivHamburgerButton=findViewById(R.id.iv_hamburgerButton);
         ivToolbarSearchButton=findViewById(R.id.iv_toolbarSearchButton);
-        mainDrawerLayout=findViewById(R.id.layout_mainDrawer);
+        mainDrawerLayout=findViewById(R.id.layout_move_in_Drawer);
         toolbar=findViewById(R.id.toolbar_main);
         mainNavigationView=findViewById(R.id.navigation);
     }
