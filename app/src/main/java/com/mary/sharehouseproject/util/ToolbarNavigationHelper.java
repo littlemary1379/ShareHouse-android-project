@@ -13,6 +13,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
+import com.mary.sharehouseproject.LoginActivity;
 import com.mary.sharehouseproject.MapActivity;
 import com.mary.sharehouseproject.MoveInActivity;
 import com.mary.sharehouseproject.R;
@@ -44,8 +45,13 @@ public class ToolbarNavigationHelper {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.menu_housemenual:
-                        Intent intent=new Intent(context, MoveInActivity.class);
-                        context.startActivity(intent);
+                        Intent intent1=new Intent(context, MoveInActivity.class);
+                        context.startActivity(intent1);
+                        break;
+                    case R.id.menu_login:
+                        Intent intent2=new Intent(context, LoginActivity.class);
+                        context.startActivity(intent2);
+                        break;
             }
             return false;
             }

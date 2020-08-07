@@ -1,0 +1,46 @@
+package com.mary.sharehouseproject;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import android.content.Context;
+import android.os.Bundle;
+import android.widget.ImageView;
+
+import com.google.android.material.navigation.NavigationView;
+import com.mary.sharehouseproject.util.ToolbarNavigationHelper;
+
+public class LoginActivity extends AppCompatActivity {
+
+    //툴바용 전역변수 설정
+    private ImageView ivHamburgerButton, ivToolbarSearchButton;
+    private DrawerLayout mainDrawerLayout;
+    private NavigationView mainNavigationView;
+    private Toolbar toolbar;
+    private Context mContext=LoginActivity.this;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+
+        initToolbar();
+        setSupportActionBar(toolbar);
+        setupToolbarNavigationView();
+    }
+
+    //툴바용 전역변수에 값 부여
+    private void initToolbar(){
+        ivHamburgerButton=findViewById(R.id.iv_hamburgerButton);
+        ivToolbarSearchButton=findViewById(R.id.iv_toolbarSearchButton);
+        mainDrawerLayout=findViewById(R.id.layout_login_drawer);
+        toolbar=findViewById(R.id.toolbar_main);
+        mainNavigationView=findViewById(R.id.navigation);
+    }
+
+    //툴바 리스너
+    private void setupToolbarNavigationView(){
+        ToolbarNavigationHelper.enableNavigationHelper(mContext,mainNavigationView,mainDrawerLayout,ivHamburgerButton,ivToolbarSearchButton);
+    }
+}
