@@ -35,8 +35,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosanskr_bold"
-                android:text="Login"
-                android:textSize="25dp"
+                android:text="내 월세를 아껴줄 \n쉐어하우스 우주"
+                android:textSize="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -59,17 +59,36 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:id="@+id/tv_login_email_title"
+                        android:layout_width="30dp"
                         android:layout_height="wrap_content"
                         android:text="ID : "
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/et_login_id"
+                        app:layout_constraintEnd_toStartOf="@id/et_login_id1"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <EditText
-                        android:id="@+id/et_login_id"
-                        android:layout_width="300dp"
+                        android:id="@+id/et_login_id1"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toEndOf="@id/tv_login_email_title"
+                        app:layout_constraintEnd_toStartOf="@id/tv_login_email_sign"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_login_email_sign"
+                        android:layout_width="20dp"
+                        android:layout_height="wrap_content"
+                        android:text=" @"
+                        app:layout_constraintStart_toEndOf="@id/et_login_id1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/et_login_id2"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/et_login_id2"
+                        android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -86,11 +105,12 @@
                     app:layout_constraintEnd_toEndOf="parent">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="30dp"
                         android:layout_height="wrap_content"
-                        android:text="PW : "
+                        android:text="PW :"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@id/et_login_pw"
+
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 

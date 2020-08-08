@@ -1,4 +1,4 @@
-package com.mary.sharehouseproject.Adapter;
+package com.mary.sharehouseproject.adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
