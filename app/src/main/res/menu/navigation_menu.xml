@@ -9,10 +9,16 @@
         android:id="@+id/menu_housemenual"
         android:title="입주 안내"
         app:showAsAction="always"/>
+
     <item
-    android:id="@+id/menu_faq"
-    android:title="FAQ"
-    app:showAsAction="always"/>
+        android:id="@+id/menu_lendHouse"
+        android:title="집내놓기"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/menu_faq"
+        android:title="FAQ"
+        app:showAsAction="always" />
     <item
         android:id="@+id/menu_login_and_join"
         android:title="로그인 및 회원가입"

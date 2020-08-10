@@ -1,5 +1,6 @@
 package com.mary.sharehouseproject.util;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -14,9 +15,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 import com.mary.sharehouseproject.FAQActivity;
+import com.mary.sharehouseproject.LendhouseActivity;
 import com.mary.sharehouseproject.LoginActivity;
 import com.mary.sharehouseproject.MapActivity;
 import com.mary.sharehouseproject.MoveInActivity;
+import com.mary.sharehouseproject.MypageActivity;
 import com.mary.sharehouseproject.R;
 
 public class ToolbarNavigationHelper {
@@ -50,13 +53,18 @@ public class ToolbarNavigationHelper {
                         context.startActivity(intent1);
                         break;
                     case R.id.menu_login_and_join:
-                        Intent intent2=new Intent(context, LoginActivity.class);
+                        Intent intent2=new Intent(context, MypageActivity.class);
                         context.startActivity(intent2);
                         break;
 
                     case R.id.menu_faq:
                         Intent intent3=new Intent(context, FAQActivity.class);
                         context.startActivity(intent3);
+                        break;
+
+                    case R.id.menu_lendHouse:
+                        Intent intent4=new Intent(context, LendhouseActivity.class);
+                        context.startActivity(intent4);
                         break;
             }
             return false;

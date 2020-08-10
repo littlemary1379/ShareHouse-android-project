@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:orientation="vertical">
+
+            <!--이메일 영역 시작-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:text="이메일"
+                    android:textColor="@color/colorMainChorale"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_light"
+                    android:text="여기에 메일이 들어갑니다. 수정불가, setText"
+                    android:textSize="14sp" />
+            </LinearLayout>
+            <!--이메일 영역 종료-->
+
+            <!--이름 영역 시작-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:text="이름"
+                    android:textColor="@color/colorMainChorale"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_light"
+                    android:hint="이름을 입력하세요."
+                    android:textSize="14sp" />
+            </LinearLayout>
+            <!--이름 영역 종료-->
+
+            <!--전화번호 영역 시작-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:text="전화번호"
+                    android:textColor="@color/colorMainChorale"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_light"
+                    android:hint="전화번호를 입력하세요."
+                    android:inputType="phone"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+            <!--전화번호 영역 종료-->
+
+            <!--성별 영역 시작-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:text="성별"
+                    android:textColor="@color/colorMainChorale"
+                    android:textSize="18sp" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:text="남성"
+                        android:fontFamily="@font/notosanskr_light"/>
+
+                    <RadioButton
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="여성"
+                        android:fontFamily="@font/notosanskr_light"/>
+
+                </RadioGroup>
+
+
+            </LinearLayout>
+            <!--성별 영역 종료-->
+
+            <!--비밀번호 영역 시작-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:text="새로운 비밀번호"
+                    android:textColor="@color/colorMainChorale"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_light"
+                    android:hint="8자리 이상 입력하세요."
+                    android:inputType="textPassword"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+            <!--비밀번호 영역 종료-->
+
+            <!--비밀번호 재확인 영역 시작-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="30dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:text="새로운 비밀번호 확인"
+                    android:textColor="@color/colorMainChorale"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_light"
+                    android:hint="8자리 이상 입력하세요."
+                    android:inputType="textPassword"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+            <!--비밀번호 영역 종료-->
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
