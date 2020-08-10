@@ -17,7 +17,6 @@
         <activity android:name=".LendhouseActivity"></activity>
         <activity android:name=".MypageActivity" />
         <activity android:name=".FAQActivity" />
-        <activity android:name=".JoinActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MoveInActivity" />
         <activity android:name=".MapActivity" />

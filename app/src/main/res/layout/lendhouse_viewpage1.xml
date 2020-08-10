@@ -1,12 +1,862 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
+    <!--배너 시작-->
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="직영임대"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/colorMainChorale"
+        android:padding="10dp">
 
+        <TextView
+            android:id="@+id/tv_manageRental_banner1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanskr_bold"
+            android:includeFontPadding="false"
+            android:text="직영임대"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_manageRental_banner2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanskr_bold"
+            android:includeFontPadding="false"
+            android:text="임차인이 되어드립니다"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_manageRental_banner1" />
+
+        <Button
+            android:id="@+id/btn_manageRental_banner1"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/border_cholare_2px"
+            android:fontFamily="@font/notosanskr_bold"
+            android:text="상담하기"
+            android:textColor="@color/colorDarkGray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_manageRental_banner2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--배너 종료-->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--조건 시작-->
+            <!--조건 종료-->
+
+            <!--장점 시작-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp">
+
+                <ImageView
+                    android:id="@+id/img_lendhouse_manageRental_condition"
+                    android:layout_width="400dp"
+                    android:layout_height="300dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/lendhouse_managerental_img1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_lendhouse_manageRental_condition1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:text="쉐어하우스 우주는 \n국내 최대 쉐어하우스 운영사입니다.\n서울 지역 내에서 조건에 맞는 집을 \n장기 임차하여 운영중입니다."
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_lendhouse_manageRental_condition" />
+
+                <TextView
+                    android:id="@+id/tv_lendhouse_manageRental_condition2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:text="* 매물조건"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_lendhouse_manageRental_condition1" />
+
+                <TextView
+                    android:id="@+id/tv_lendhouse_manageRental_condition3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/notosanskr_light"
+                    android:includeFontPadding="false"
+                    android:text="- 역세권 \n- 서울대학가(도보로 등교 가능한 거리) \n- 아파트, 다세대 주택, 다가구 주택, 단독 주택, 다중주택 \n- 3룸 이상의 규모"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_lendhouse_manageRental_condition2" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:stretchColumns="*">
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_span="2"
+                        android:fontFamily="@font/notosanskr_bold"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:text="불필요한 지출을 줄이고 싶은 당신,"
+                        android:textSize="18sp" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_span="2"
+                        android:fontFamily="@font/notosanskr_bold"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:paddingBottom="15dp"
+                        android:text="WOOZOO에게 임대 해야 하는 이유"
+                        android:textSize="14sp" />
+                </TableRow>
+
+                <!--장점 1열-->
+                <TableRow>
+                    <!--장점1 시작-->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/border_all"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:id="@+id/img_lendhouse_manageRental_advantage1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/lendhouse_managerental_img2"
+                            app:layout_constraintBottom_toTopOf="@id/img_lendhouse_manageRental_advantage1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_lendhouse_manageRental_advantage1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="장기 월세 임차인"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/img_lendhouse_manageRental_advantage1" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <!--장점1 종료-->
+
+                    <!--장점2 시작-->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/border_all"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:id="@+id/img_lendhouse_manageRental_advantage2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/lendhouse_managerental_img3"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_lendhouse_manageRental_advantage2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="오래된 집 리모델링"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/img_lendhouse_manageRental_advantage2" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <!--장점2 종료-->
+                </TableRow>
+                <!--열1 종료-->
+
+                <!--장점 2열-->
+                <TableRow>
+                    <!--장점3 시작-->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/border_all"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:id="@+id/img_lendhouse_manageRental_advantage3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/lendhouse_managerental_img5"
+                            app:layout_constraintBottom_toTopOf="@id/img_lendhouse_manageRental_advantage3"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.526"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.777" />
+
+                        <TextView
+                            android:id="@+id/tv_lendhouse_manageRental_advantage3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="중개 수수료 절감"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/img_lendhouse_manageRental_advantage3" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <!--장점3 종료-->
+
+                    <!--장점4 시작-->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/border_all"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:id="@+id/img_lendhouse_manageRental_advantage4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/lendhouse_managerental_img4"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_lendhouse_manageRental_advantage4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="임차인 관리 담당"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/img_lendhouse_manageRental_advantage4" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <!--장점4 종료-->
+                </TableRow>
+                <!--열2 종료-->
+
+            </TableLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_light"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="월세 수익을 더 높이고 싶으신가요?" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="보증금은 낮추고, 월세를 높이실 수도 있습니다."
+                    android:textSize="16sp" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_lendhouse_adventage1"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:background="@drawable/round_gray"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/img_lendhouse_adventage_img1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/notosanskr_light"
+                                android:gravity="center"
+                                android:includeFontPadding="false"
+                                android:text="보증금" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/notosanskr_bold"
+                                android:gravity="center"
+                                android:includeFontPadding="false"
+                                android:text="5000만원" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/notosanskr_light"
+                                android:gravity="center"
+                                android:includeFontPadding="false"
+                                android:text="월세" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/notosanskr_bold"
+                                android:gravity="center"
+                                android:includeFontPadding="false"
+                                android:text="50만원" />
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <ImageView
+                        android:id="@+id/img_lendhouse_adventage_img1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_arrow_mainchorale"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/layout_lendhouse_adventage2"
+                        app:layout_constraintStart_toEndOf="@id/layout_lendhouse_adventage1"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_lendhouse_adventage2"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:background="@drawable/round_chorale"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/img_lendhouse_adventage_img1"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/notosanskr_light"
+                                android:gravity="center"
+                                android:includeFontPadding="false"
+                                android:text="보증금"
+                                android:textColor="@android:color/white" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/notosanskr_bold"
+                                android:gravity="center"
+                                android:includeFontPadding="false"
+                                android:text="2000만원"
+                                android:textColor="@android:color/white" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/notosanskr_light"
+                                android:gravity="center"
+                                android:includeFontPadding="false"
+                                android:text="월세"
+                                android:textColor="@android:color/white" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/notosanskr_bold"
+                                android:gravity="center"
+                                android:includeFontPadding="false"
+                                android:text="70만원"
+                                android:textColor="@android:color/white" />
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+            <!--장점 완료-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:gravity="center"
+                    android:text="우주에 장기 임대를 맡기고 계신 분들의 \n후기를 읽어보세요"
+                    android:textSize="18sp" />
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="*">
+                    <!--후기 1열 시작-->
+                    <TableRow>
+                        <!--후기 1 시작-->
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/img_lendhouse_review_img1"
+                                android:layout_width="150dp"
+                                android:layout_height="120dp"
+                                android:src="@drawable/lendhouse_managerental_review_img1"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/notosanskr_bold"
+                                android:text="계약을 연장할 수 \n있어서 좋아요."
+                                android:textSize="14sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/img_lendhouse_review_img1" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <!--후기 1 종료-->
+
+                        <!--후기 2 시작-->
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/img_lendhouse_review_img2"
+                                android:layout_width="150dp"
+                                android:layout_height="120dp"
+                                android:src="@drawable/lendhouse_managerental_review_img2"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/notosanskr_bold"
+                                android:text="4년째 해외거주 하며 \n월세를 받을 수 있어요."
+                                android:textSize="14sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/img_lendhouse_review_img2" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <!--후기 1 종료-->
+                    </TableRow>
+                    <!--후기 1열 종료-->
+
+                    <!--후기 2열 시작-->
+                    <TableRow>
+                        <!--후기 3 시작-->
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/img_lendhouse_review_img3"
+                                android:layout_width="150dp"
+                                android:layout_height="120dp"
+                                android:src="@drawable/lendhouse_managerental_review_img3"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/notosanskr_bold"
+                                android:text="집이 예쁘게 \n꾸며져서 좋아요."
+                                android:textSize="14sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/img_lendhouse_review_img3" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <!--후기 3 종료-->
+
+                        <!--후기 4 시작-->
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/img_lendhouse_review_img4"
+                                android:layout_width="150dp"
+                                android:layout_height="120dp"
+                                android:src="@drawable/lendhouse_managerental_review_img4"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/notosanskr_bold"
+                                android:text="공실 걱정이 \n줄어서 좋아요."
+                                android:textSize="14sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/img_lendhouse_review_img4" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <!--후기 4 종료-->
+                    </TableRow>
+                    <!--후기 2열 종료-->
+                </TableLayout>
+
+            </LinearLayout>
+
+            <!--부동산 주소 입력 시작-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBackgroundLightGray"
+                    android:gravity="center"
+                    android:paddingTop="18dp"
+                    android:paddingBottom="50dp"
+                    android:text="궁금하신 점 망설이지 말고 \n 상담부터 신청하세요"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:orientation="vertical"
+                    android:padding="15dp"
+                    android:layout_marginTop="75dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <EditText
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:hint="보유 부동산 주소를 입력하세요."
+                        android:textSize="16sp"
+                        />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:background="@drawable/border_darkgray_2px"
+                        android:text="다음"
+                        android:layout_gravity="center"/>
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!--부동산 주소 입력 종료-->
+
+            <!--상담 과정 시작-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp">
+
+                <TextView
+                    android:id="@+id/tv_lendhouse_process"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="상담 및 계약 과정"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/notosanskr_bold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <LinearLayout
+                    android:id="@+id/layout_lendhouse_process1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/tv_lendhouse_process"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/layout_lendhouse_process2">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/lendhouse_managerental_process1"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="상담하기"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/layout_lendhouse_process2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/tv_lendhouse_process"
+                    app:layout_constraintStart_toEndOf="@id/layout_lendhouse_process1"
+                    app:layout_constraintEnd_toStartOf="@id/layout_lendhouse_process3">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/lendhouse_managerental_process2"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="계약하기"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_lendhouse_process3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/tv_lendhouse_process"
+                    app:layout_constraintStart_toEndOf="@id/layout_lendhouse_process2"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/lendhouse_managerental_process3"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="월세 받기"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!--상담 과정 종료-->
+
+            <!--QnA 시작-->
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="*"
+                android:layout_margin="10dp">
+                <!--QnA 1열 시작-->
+                <TableRow>
+                    <!--QnA 1 시작-->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/border_all"
+                        android:layout_margin="5dp"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/tv_lendhouse_QnA_title1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="임대 조건이 \n까다롭진 않나요?"
+                            android:fontFamily="@font/notosanskr_bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_light"
+                            android:text="일반 임대차와 같습니다.\n단, 소유주의 전대동의 필요."
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tv_lendhouse_QnA_title1" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <!--QnA 1 종료-->
+
+                    <!--QnA 2 시작-->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/border_all"
+                        android:layout_margin="5dp"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/tv_lendhouse_QnA_title2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="집 관리는 \n어떻게 하나요?"
+                            android:fontFamily="@font/notosanskr_bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_light"
+                            android:text="정적이고 지속적인 관리로.\n문제가 발생하지 않게 관리."
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tv_lendhouse_QnA_title2" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <!--QnA 2 종료-->
+                </TableRow>
+                <!--후기 1열 종료-->
+
+                <!--QnA 2열 시작-->
+                <TableRow>
+                    <!--QnA 3 시작-->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/border_all"
+                        android:layout_margin="5dp"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/tv_lendhouse_QnA_title3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="보증금을 낮추고 \n월세를 높일 수 있을까요?"
+                            android:fontFamily="@font/notosanskr_bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_light"
+                            android:text="가능합니다.\n(예 5000/50 > 2000/70)"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tv_lendhouse_QnA_title3" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <!--QnA 3 종료-->
+
+                    <!--QnA 4 시작-->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/border_all"
+                        android:layout_margin="5dp"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/tv_lendhouse_QnA_title4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="임대차 계약 만료 후 \n재연장을 할 수 있나요?"
+                            android:fontFamily="@font/notosanskr_bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_light"
+                            android:text="가능합니다.\n필요시 기간도 협의 가능합니다."
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tv_lendhouse_QnA_title4" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <!--QnA 4 종료-->
+                </TableRow>
+                <!--후기 2열 종료-->
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

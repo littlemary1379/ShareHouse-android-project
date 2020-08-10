@@ -8,6 +8,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Context;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
@@ -27,6 +28,7 @@ public class MypageActivity extends AppCompatActivity {
     private ViewPager viewPager;
 
     //툴바용 전역변수 설정
+    private TextView logoText;
     private ImageView ivHamburgerButton, ivToolbarSearchButton;
     private DrawerLayout mainDrawerLayout;
     private NavigationView mainNavigationView;
@@ -60,6 +62,7 @@ public class MypageActivity extends AppCompatActivity {
 
     //툴바용 전역변수에 값 부여
     private void initToolbar(){
+        logoText=findViewById(R.id.tv_logoText);
         ivHamburgerButton=findViewById(R.id.iv_hamburgerButton);
         ivToolbarSearchButton=findViewById(R.id.iv_toolbarSearchButton);
         mainDrawerLayout=findViewById(R.id.layout_mypage_Drawer);
@@ -69,6 +72,6 @@ public class MypageActivity extends AppCompatActivity {
 
     //툴바 리스너
     private void setupToolbarNavigationView(){
-        ToolbarNavigationHelper.enableNavigationHelper(mContext,mainNavigationView,mainDrawerLayout,ivHamburgerButton,ivToolbarSearchButton);
+        ToolbarNavigationHelper.enableNavigationHelper(mContext,mainNavigationView,mainDrawerLayout,logoText,ivHamburgerButton,ivToolbarSearchButton);
     }
 }
