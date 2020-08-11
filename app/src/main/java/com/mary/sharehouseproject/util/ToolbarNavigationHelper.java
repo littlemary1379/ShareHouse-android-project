@@ -68,7 +68,7 @@ public class ToolbarNavigationHelper {
 
                         break;
                     case R.id.menu_login_and_join:
-                        Intent intent2=new Intent(context, MypageActivity.class);
+                        Intent intent2=new Intent(context,LoginActivity.class);
                         intent2.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         context.startActivity(intent2);
                         break;

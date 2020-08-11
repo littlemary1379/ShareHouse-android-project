@@ -74,7 +74,9 @@
                         android:layout_height="wrap_content"
                         app:layout_constraintStart_toEndOf="@id/tv_login_email_title"
                         app:layout_constraintEnd_toStartOf="@id/tv_login_email_sign"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:singleLine="true"
+                        android:nextFocusDown="@id/et_login_id2"/>
 
                     <TextView
                         android:id="@+id/tv_login_email_sign"
@@ -84,14 +86,17 @@
                         app:layout_constraintStart_toEndOf="@id/et_login_id1"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@id/et_login_id2"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:nextFocusDown="@id/et_login_pw"/>
 
                     <EditText
                         android:id="@+id/et_login_id2"
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:singleLine="true"
+                        android:nextFocusDown="@id/et_login_pw"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -120,7 +125,8 @@
                         android:layout_height="wrap_content"
                         android:inputType="textPassword"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:singleLine="true"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
