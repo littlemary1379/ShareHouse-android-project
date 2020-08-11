@@ -67,10 +67,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!--조건 시작-->
-            <!--조건 종료-->
 
-            <!--장점 시작-->
+            <!--조건 시작-->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -122,6 +120,8 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_lendhouse_manageRental_condition2" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+            <!--조건 종료-->
+
 
             <TableLayout
                 android:layout_width="match_parent"

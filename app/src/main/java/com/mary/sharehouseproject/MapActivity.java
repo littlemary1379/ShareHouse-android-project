@@ -7,7 +7,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.ViewGroup;
 
-import net.daum.mf.map.api.MapView;
+import com.naver.maps.map.NaverMapSdk;
 
 
 public class MapActivity extends AppCompatActivity {
@@ -18,11 +18,8 @@ public class MapActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
-
-        MapView mapView = new MapView(mapContext);
-
-        ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
-        mapViewContainer.addView(mapView);
+        NaverMapSdk.getInstance(this).setClient(
+                new NaverMapSdk.NaverCloudPlatformClient("x"));
 
     }
 }

@@ -51,6 +51,7 @@ public class LendhouseViewPager1 extends Fragment {
                         tvConsulting.getLocationInWindow(a);
                         scrollView.smoothScrollBy(0,a[1]-p.y);
 
+
                     }
                 },400);
 

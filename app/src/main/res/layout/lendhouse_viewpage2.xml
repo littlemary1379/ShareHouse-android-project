@@ -1,12 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
+    <!--배너 시작-->
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="위탁 맡기기"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/colorMainChorale"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tv_trust_banner1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanskr_bold"
+            android:includeFontPadding="false"
+            android:text="집을 '우주'에 맡기면"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_trust_banner2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanskr_bold"
+            android:includeFontPadding="false"
+            android:text="임대  수익은 높고, 관리는 쉬워집니다"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_trust_banner1" />
+
+        <Button
+            android:id="@+id/btn_trust_banner1"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/border_cholare_2px"
+            android:fontFamily="@font/notosanskr_bold"
+            android:text="상담하기"
+            android:textColor="@color/colorDarkGray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_trust_banner2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--배너 종료-->
+
+    <ScrollView
+        android:id="@+id/scroll_trust1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--테이블 시작-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp">
+
+                <ImageView
+                    android:id="@+id/img_trust_graph"
+                    android:layout_width="400dp"
+                    android:layout_height="300dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/lendhouse_trust_graph"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_trust_graph1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:text="우주는 지속적으로 확장중인 \n국내 최대 쉐어하우스 운영사입니다."
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_trust_graph" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!--테이블 종료-->
+
+            <!--조건 시작-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp">
+
+                <ImageView
+                    android:id="@+id/img_trust_map"
+                    android:layout_width="400dp"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="36dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/lendhouse_managerental_img1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_trust_map1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:text="우주는 오랜 운영 경혐으로 \n위탁 시 안정적 수입을 보장합니다."
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_trust_map" />
+
+
+                <TextView
+                    android:id="@+id/tv_trust_map2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/notosanskr_light"
+                    android:includeFontPadding="false"
+                    android:text="우주는 국내에서 가장 많이, 가장 오래된 쉐어하우스 위탁 운영사입니다 \n보다 정확한 데이터를 통해 수익 분석 단계부터 사업의 가능성을 고려합니다 \n1.5배 이상의 임대수익을 기대해보세요."
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_trust_map1" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!--조건 종료-->
+
+            <!--장점 시작-->
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="불필요한 운영 고민과 노력을 줄이고 싶은 당신이"
+                    android:fontFamily="@font/notosanskr_light"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="WOOZOO에 위탁을 맡겨야 하는 이유"
+                    android:includeFontPadding="false"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:textSize="20sp"/>
+
+            </LinearLayout>
+            <!--장점 종료-->
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
