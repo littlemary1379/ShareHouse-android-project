@@ -60,6 +60,7 @@ public class ToolbarNavigationHelper {
         view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                drawerLayout.closeDrawer(Gravity.LEFT);
                 switch (item.getItemId()){
                     case R.id.menu_housemenual:
                         Intent intent1=new Intent(context, MoveInActivity.class);
