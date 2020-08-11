@@ -58,6 +58,7 @@
     <!--배너 종료-->
 
     <ScrollView
+        android:id="@+id/scroll_lendhouse1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -591,6 +592,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:id="@+id/tv_lendHouse_consult"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/colorBackgroundLightGray"
@@ -617,6 +619,7 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <EditText
+                        android:id="@+id/et_lendHouse_consult"
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:hint="보유 부동산 주소를 입력하세요."
