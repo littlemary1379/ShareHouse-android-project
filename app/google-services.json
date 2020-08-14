@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "667966210240",
+    "firebase_url": "https://sharehouseproje.firebaseio.com",
+    "project_id": "sharehouseproje",
+    "storage_bucket": "sharehouseproje.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667966210240:android:804a20b6edf385c11f2d25",
+        "android_client_info": {
+          "package_name": "com.mary.sharehouseproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "667966210240-tvn7dt5nci4vj4ae3k8mchb0tc96qle2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mary.sharehouseproject",
+            "certificate_hash": "21ac79d14c3f70e1b311d27173860f2932f0973e"
+          }
+        },
+        {
+          "client_id": "667966210240-pt66q42hs5vlg9ctvuqphm3i4nafbf1r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_t674jjZ_53vDvMXLVkupa41uuuo8Jzo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "667966210240-pt66q42hs5vlg9ctvuqphm3i4nafbf1r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

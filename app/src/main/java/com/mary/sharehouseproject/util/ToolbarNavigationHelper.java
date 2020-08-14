@@ -1,6 +1,5 @@
 package com.mary.sharehouseproject.util;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -11,17 +10,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
-import com.mary.sharehouseproject.FAQActivity;
-import com.mary.sharehouseproject.LendhouseActivity;
-import com.mary.sharehouseproject.LoginActivity;
-import com.mary.sharehouseproject.MainActivity;
-import com.mary.sharehouseproject.MapActivity;
-import com.mary.sharehouseproject.MoveInActivity;
-import com.mary.sharehouseproject.MypageActivity;
+import com.mary.sharehouseproject.activity.FAQActivity;
+import com.mary.sharehouseproject.activity.LendhouseActivity;
+import com.mary.sharehouseproject.activity.LoginActivity;
+import com.mary.sharehouseproject.activity.MainActivity;
+import com.mary.sharehouseproject.activity.MapActivity;
+import com.mary.sharehouseproject.activity.MoveInActivity;
 import com.mary.sharehouseproject.R;
 
 public class ToolbarNavigationHelper {

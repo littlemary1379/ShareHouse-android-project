@@ -1,6 +1,7 @@
 package com.mary.sharehouseproject.fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,14 +12,27 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.mary.sharehouseproject.R;
 import com.mary.sharehouseproject.adapter.FaqRecyclerAdapter;
 import com.mary.sharehouseproject.model.Faq;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class FaqViewPager2 extends Fragment {
+    private static final String TAG = "FaqViewPager2";
+
     private FaqRecyclerAdapter recyclerAdapter;
     private RecyclerView rcFaq;
+    private List<Faq> faqList=new ArrayList<>();
+
 
     @Nullable
     @Override
@@ -26,16 +40,37 @@ public class FaqViewPager2 extends Fragment {
         View v = inflater.inflate(R.layout.f_a_q_viewpage2, container, false);
         init(v);
         initData();
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        rcFaq.setLayoutManager(layoutManager);
-        rcFaq.setAdapter(recyclerAdapter);
-
         return v;
     }
 
     private void initData() {
-        recyclerAdapter.addFaqList(new Faq("계약기간은 어떻게 되나요?", "--"));
-        recyclerAdapter.addFaqList(new Faq("입주일은 어떻게 정해지나요?", "--"));
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("/FAQ/contact/list/")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()){
+                            for(QueryDocumentSnapshot document : task.getResult()){
+                                faqList.add(document.toObject(Faq.class));
+                            }
+                            Log.d(TAG, "onComplete: 데이터 반영 완료"+faqList);
+                            RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(getContext());
+                            recyclerAdapter.addFaqList(faqList);
+                            rcFaq.setLayoutManager(layoutManager);
+                            recyclerAdapter.notifyDataSetChanged();
+                            rcFaq.setAdapter(recyclerAdapter);
+                        }else{
+                            Log.d(TAG, "onComplete: 실패");
+                        }
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d(TAG, "onFailure: "+e.getMessage());
+            }
+        });
     }
 
     private void init(View v) {

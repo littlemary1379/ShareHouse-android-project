@@ -1,12 +1,11 @@
-package com.mary.sharehouseproject;
+package com.mary.sharehouseproject.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.view.ViewGroup;
 
+import com.mary.sharehouseproject.R;
 import com.naver.maps.map.NaverMapSdk;
 
 

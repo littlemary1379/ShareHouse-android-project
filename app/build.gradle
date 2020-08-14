@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 29
@@ -57,5 +58,13 @@ android {
 
         //지도 클러스터링
         implementation 'gun0912.ted:tedclustering-naver:1.0.2'
+
+        //구글 파이어베이스 SDK
+        implementation 'com.google.firebase:firebase-core:17.0.0'
+
+        //구글 파이어베이스 클라우드 데이터베이스
+        implementation 'com.google.firebase:firebase-firestore:21.2.1'
+
     }
+
 }

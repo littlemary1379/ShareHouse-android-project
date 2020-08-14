@@ -1,4 +1,4 @@
-package com.mary.sharehouseproject;
+package com.mary.sharehouseproject.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
+import com.mary.sharehouseproject.R;
 import com.mary.sharehouseproject.util.ToolbarNavigationHelper;
 
 public class MainActivity extends AppCompatActivity {

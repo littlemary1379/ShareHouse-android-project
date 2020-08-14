@@ -9,7 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.mary.sharehouseproject.FAQActivity;
 import com.mary.sharehouseproject.R;
 import com.mary.sharehouseproject.model.Faq;
 
@@ -27,12 +26,14 @@ public class FaqRecyclerAdapter extends RecyclerView.Adapter<FaqRecyclerAdapter.
 
     public void addFaqList(List<Faq> faqLists) {
         this.faqLists = faqLists;
+        Log.d(TAG, "addFaqList: add 확인: "+faqLists);
     }
 
 
     @NonNull
     @Override
     public FaqViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        Log.d(TAG, "onCreateViewHolder: 바인딩은 되니?");
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View v = layoutInflater.inflate(R.layout.faq_item, parent, false);
         return new FaqViewHolder(v);
@@ -41,6 +42,7 @@ public class FaqRecyclerAdapter extends RecyclerView.Adapter<FaqRecyclerAdapter.
     @Override
     public void onBindViewHolder(@NonNull FaqViewHolder holder, int position) {
         Faq faq = faqLists.get(position);
+        Log.d(TAG, "onBindViewHolder: "+faq);
         holder.setItem(faq);
     }
 
@@ -54,8 +56,9 @@ public class FaqRecyclerAdapter extends RecyclerView.Adapter<FaqRecyclerAdapter.
         private TextView tvFaqTitle, tvFaqContent;
 
         public FaqViewHolder(@NonNull final View itemView) {
-            super(itemView);
 
+            super(itemView);
+            Log.d(TAG, "FaqViewHolder: ????????????");
 
             tvFaqTitle = itemView.findViewById(R.id.tv_faq_title);
             tvFaqContent = itemView.findViewById(R.id.tv_faq_content);
@@ -70,8 +73,8 @@ public class FaqRecyclerAdapter extends RecyclerView.Adapter<FaqRecyclerAdapter.
         }
 
         public void setItem(Faq faq) {
-            tvFaqTitle.setText(faq.getFaqTitle());
-            tvFaqContent.setText(faq.getFaqContent());
+            tvFaqTitle.setText(faq.getTitle());
+            tvFaqContent.setText(faq.getContent());
         }
     }
 }

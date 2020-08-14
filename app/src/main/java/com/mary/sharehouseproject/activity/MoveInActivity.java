@@ -1,4 +1,4 @@
-package com.mary.sharehouseproject;
+package com.mary.sharehouseproject.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -12,18 +12,17 @@ import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.mary.sharehouseproject.R;
 import com.mary.sharehouseproject.adapter.HouseManualFragAdapter;
-import com.mary.sharehouseproject.adapter.MypageFragAdapter;
 import com.mary.sharehouseproject.fragment.HouseManualViewPager1;
 import com.mary.sharehouseproject.fragment.HouseManualViewPager2;
 import com.mary.sharehouseproject.fragment.HouseManualViewPager3;
-import com.mary.sharehouseproject.fragment.MypageViewPager1;
-import com.mary.sharehouseproject.fragment.MypageViewPager2;
 import com.mary.sharehouseproject.util.ToolbarNavigationHelper;
 
-public class MypageActivity extends AppCompatActivity {
+public class MoveInActivity extends AppCompatActivity {
+    private static final String TAG = "MoveInActivity";
 
-    private MypageFragAdapter adapter;
+    private HouseManualFragAdapter adapter;
     private TabLayout tabLayout;
     private ViewPager viewPager;
 
@@ -33,31 +32,37 @@ public class MypageActivity extends AppCompatActivity {
     private DrawerLayout mainDrawerLayout;
     private NavigationView mainNavigationView;
     private Toolbar toolbar;
-    private Context mContext=MypageActivity.this;
+    private Context mContext=MoveInActivity.this;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mypage);
+        setContentView(R.layout.activity_move_in);
 
         init();
         initToolbar();
+        setSupportActionBar(toolbar);
         setupToolbarNavigationView();
 
-        adapter.addFragment(new MypageViewPager1());
-        adapter.addFragment(new MypageViewPager2());
+        adapter.addFragment(new HouseManualViewPager1());
+        adapter.addFragment(new HouseManualViewPager2());
+        adapter.addFragment(new HouseManualViewPager3());
 
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
 
-        tabLayout.getTabAt(0).setText("우주 혜택");
-        tabLayout.getTabAt(1).setText("개인정보 수정");
+        tabLayout.getTabAt(0).setText("입주 절차");
+        tabLayout.getTabAt(1).setText("우주 문화");
+        tabLayout.getTabAt(2).setText("제휴 서비스");
+
+
     }
 
     private void init(){
-        adapter=new MypageFragAdapter(getSupportFragmentManager(),1);
-        tabLayout = findViewById(R.id.layout_mypage_tab);
-        viewPager = findViewById(R.id.viewpager_mypage);
+        adapter=new HouseManualFragAdapter(getSupportFragmentManager(),1);
+        tabLayout = findViewById(R.id.layout_housemenual_tab);
+        viewPager = findViewById(R.id.viewpager_housemenual);
     }
 
     //툴바용 전역변수에 값 부여
@@ -65,7 +70,7 @@ public class MypageActivity extends AppCompatActivity {
         logoText=findViewById(R.id.tv_logoText);
         ivHamburgerButton=findViewById(R.id.iv_hamburgerButton);
         ivToolbarSearchButton=findViewById(R.id.iv_toolbarSearchButton);
-        mainDrawerLayout=findViewById(R.id.layout_mypage_Drawer);
+        mainDrawerLayout=findViewById(R.id.layout_move_in_Drawer);
         toolbar=findViewById(R.id.toolbar_main);
         mainNavigationView=findViewById(R.id.navigation);
     }
@@ -74,4 +79,5 @@ public class MypageActivity extends AppCompatActivity {
     private void setupToolbarNavigationView(){
         ToolbarNavigationHelper.enableNavigationHelper(mContext,mainNavigationView,mainDrawerLayout,logoText,ivHamburgerButton,ivToolbarSearchButton);
     }
+
 }
