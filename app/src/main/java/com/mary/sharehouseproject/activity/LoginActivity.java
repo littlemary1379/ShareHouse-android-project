@@ -31,6 +31,8 @@ public class LoginActivity extends AppCompatActivity {
         initToolbar();
         setSupportActionBar(toolbar);
         setupToolbarNavigationView();
+
+
     }
 
     //툴바용 전역변수에 값 부여
