@@ -65,6 +65,9 @@ android {
         //구글 파이어베이스 클라우드 데이터베이스
         implementation 'com.google.firebase:firebase-firestore:21.2.1'
 
+        //구글 파이어베이스 로그인 인증
+        implementation 'com.google.firebase:firebase-auth:19.3.2'
+
     }
 
 }
