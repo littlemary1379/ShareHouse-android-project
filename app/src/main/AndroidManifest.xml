@@ -14,24 +14,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.LendhouseActivity"></activity>
+        <activity android:name=".activity.LendhouseActivity" />
         <activity android:name=".activity.MypageActivity" />
         <activity android:name=".activity.FAQActivity" />
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.MoveInActivity" />
         <activity android:name=".activity.MapActivity" />
-        <activity android:name=".activity.MainActivity">
-
+        <activity android:name=".activity.SpalshActivity"
+            android:theme="@style/splashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.MainActivity"/>
+
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="x" />
-
     </application>
 
 </manifest>

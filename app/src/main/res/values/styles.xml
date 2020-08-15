@@ -7,4 +7,12 @@
         <item name="colorAccent">#FF605C</item>
 
     </style>
+    <!--Splash theme-->
+    <style name="splashTheme"
+        parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:windowBackground">
+            @drawable/splash_background
+        </item>
+        
+    </style>
 </resources>
