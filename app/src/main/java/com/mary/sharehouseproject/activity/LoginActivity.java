@@ -19,12 +19,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.mary.sharehouseproject.R;
+import com.mary.sharehouseproject.model.User;
 import com.mary.sharehouseproject.util.ToolbarNavigationHelper;
 
 public class LoginActivity extends AppCompatActivity {
@@ -32,7 +37,10 @@ public class LoginActivity extends AppCompatActivity {
 
     private Button btnJoin;
     private EditText etEmail, etPassword;
-    private String email,password=null;
+    private String email, password = null;
+    private FirebaseFirestore db;
+    private User user;
+
 
     //툴바용 전역변수 설정
     private TextView logoText;
@@ -57,6 +65,8 @@ public class LoginActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         setupToolbarNavigationView();
         mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+
     }
 
     @Override
@@ -66,18 +76,17 @@ public class LoginActivity extends AppCompatActivity {
         Log.d(TAG, "onStart: " + firebaseUser);
     }
 
-    private void createEmail(String email, String password){
-        mAuth.createUserWithEmailAndPassword(email,password)
+    private void createEmail(final String email, String password) {
+        mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             Log.d(TAG, "onComplete: 가입됨");
-                            firebaseUser=mAuth.getCurrentUser();
-                            Intent mainIntent=new Intent(mContext,MainActivity.class);
-                            startActivity(mainIntent);
-                        }else{
-                            Log.d(TAG, "onComplete: 가입 안됨.."+task.getException());
+                            firebaseUser = mAuth.getCurrentUser();
+                            registUser();
+                        } else {
+                            Log.d(TAG, "onComplete: 가입 안됨.." + task.getException());
                             Toast.makeText(mContext, "가입에 실패하셨습니다.", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -101,20 +110,47 @@ public class LoginActivity extends AppCompatActivity {
         ToolbarNavigationHelper.enableNavigationHelper(mContext, mainNavigationView, mainDrawerLayout, logoText, ivHamburgerButton, ivToolbarSearchButton);
     }
 
-    private void init(){
-        btnJoin=findViewById(R.id.btn_join);
-        etEmail=findViewById(R.id.et_login_id);
-        etPassword=findViewById(R.id.et_login_pw);
+    private void init() {
+        btnJoin = findViewById(R.id.btn_join);
+        etEmail = findViewById(R.id.et_login_id);
+        etPassword = findViewById(R.id.et_login_pw);
     }
 
-    private void Listener(){
+    private void Listener() {
+        email = etEmail.getText().toString().trim();
+        password = etPassword.getText().toString();
+
         btnJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: 회원가입 버튼 눌리나?");
-                createEmail(etEmail.getText().toString().trim(),etPassword.getText().toString());
+                createEmail(etEmail.getText().toString().trim(), etPassword.getText().toString());
             }
         });
 
     }
+
+    private void registUser() {
+        user=User.builder()
+                .email(etEmail.getText().toString().trim())
+                .role("임차인")
+                .build();
+        db.collection("user")
+                .add(user)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Log.d(TAG, "onSuccess: user 성공");
+                        Intent mainIntent = new Intent(mContext, MainActivity.class);
+                        startActivity(mainIntent);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d(TAG, "onFailure: " + e.getMessage());
+                    }
+                });
+    }
+
 }

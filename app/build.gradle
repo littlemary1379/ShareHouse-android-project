@@ -66,6 +66,7 @@ android {
         implementation 'com.google.firebase:firebase-firestore:21.2.1'
 
         //구글 파이어베이스 로그인 인증
+        implementation 'com.firebaseui:firebase-ui-auth:6.2.0'
         implementation 'com.google.firebase:firebase-auth:19.3.2'
 
     }

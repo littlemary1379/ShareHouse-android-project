@@ -100,6 +100,9 @@ public class ToolbarNavigationHelper {
                         intent4.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         context.startActivity(intent4);
                         break;
+
+                    case R.id.menu_brand:
+                        FirebaseAuth.getInstance().signOut();
             }
 
             return false;
