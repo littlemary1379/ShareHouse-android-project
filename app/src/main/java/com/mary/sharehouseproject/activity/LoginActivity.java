@@ -26,8 +26,12 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.mary.sharehouseproject.R;
 import com.mary.sharehouseproject.model.User;
 import com.mary.sharehouseproject.util.ToolbarNavigationHelper;
@@ -35,11 +39,12 @@ import com.mary.sharehouseproject.util.ToolbarNavigationHelper;
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
 
-    private Button btnJoin;
+    private Button btnJoin,btnLogin;
     private EditText etEmail, etPassword;
     private String email, password = null;
     private FirebaseFirestore db;
     private User user;
+    private TextView alertText;
 
 
     //툴바용 전역변수 설정
@@ -84,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "onComplete: 가입됨");
                             firebaseUser = mAuth.getCurrentUser();
-                            registUser();
+                            RegistUser();
                         } else {
                             Log.d(TAG, "onComplete: 가입 안됨.." + task.getException());
                             Toast.makeText(mContext, "가입에 실패하셨습니다.", Toast.LENGTH_SHORT).show();
@@ -111,7 +116,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void init() {
+        alertText=findViewById(R.id.tv_alert_email);
         btnJoin = findViewById(R.id.btn_join);
+        btnLogin=findViewById(R.id.btn_login);
         etEmail = findViewById(R.id.et_login_id);
         etPassword = findViewById(R.id.et_login_pw);
     }
@@ -119,6 +126,15 @@ public class LoginActivity extends AppCompatActivity {
     private void Listener() {
         email = etEmail.getText().toString().trim();
         password = etPassword.getText().toString();
+
+        etEmail.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (b == false) {
+                    SelectUser();
+                }
+            }
+        });
 
         btnJoin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,8 +146,8 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void registUser() {
-        user=User.builder()
+    private void RegistUser() {
+        user = User.builder()
                 .email(etEmail.getText().toString().trim())
                 .role("임차인")
                 .build();
@@ -151,6 +167,45 @@ public class LoginActivity extends AppCompatActivity {
                         Log.d(TAG, "onFailure: " + e.getMessage());
                     }
                 });
+    }
+
+    private void SelectUser() {
+        Log.d(TAG, "onFocusChange: 포커스 사라짐");
+        db.collection("user").whereEqualTo("email",etEmail.getText().toString().trim())
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d(TAG, "onComplete: " + document.getData());
+                                UpdateUiHasEmail();
+                                return;
+                            }
+                        } else {
+                            Log.d(TAG, "onComplete: 비어서 안되는건가?");
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d(TAG, "onFailure: SelectUser"+e.getMessage());
+                    }
+                });
+        UpdateUiNoEmail();
+    }
+
+    private void UpdateUiHasEmail(){
+        alertText.setVisibility(View.VISIBLE);
+        alertText.setText("이메일이 있습니다.  로그인을 진행합니다.");
+        btnJoin.setVisibility(View.GONE);
+        btnLogin.setVisibility(View.VISIBLE);
+    }
+
+    private void UpdateUiNoEmail(){
+        alertText.setVisibility(View.VISIBLE);
+        alertText.setText("이메일이 없습니다. 회원가입을 진행합니다.");
     }
 
 }
