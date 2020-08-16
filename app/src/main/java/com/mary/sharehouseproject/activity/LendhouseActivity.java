@@ -26,7 +26,7 @@ public class LendhouseActivity extends AppCompatActivity {
 
     //툴바용 전역변수 설정
     private TextView logoText;
-    private ImageView ivHamburgerButton, ivToolbarSearchButton;
+    private ImageView ivHamburgerButton, ivToolbarSearchButton,ivLogoutButton;
     private DrawerLayout mainDrawerLayout;
     private NavigationView mainNavigationView;
     private Toolbar toolbar;
@@ -64,10 +64,12 @@ public class LendhouseActivity extends AppCompatActivity {
         mainDrawerLayout=findViewById(R.id.layout_lendhouse_Drawer);
         toolbar=findViewById(R.id.toolbar_main);
         mainNavigationView=findViewById(R.id.navigation);
+        ivLogoutButton=findViewById(R.id.iv_logoutButton);
+
     }
 
     //툴바 리스너
     private void setupToolbarNavigationView(){
-        ToolbarNavigationHelper.enableNavigationHelper(mContext,mainNavigationView,mainDrawerLayout,logoText,ivHamburgerButton,ivToolbarSearchButton);
+        ToolbarNavigationHelper.enableNavigationHelper(mContext,mainNavigationView,mainDrawerLayout,logoText,ivHamburgerButton,ivToolbarSearchButton,ivLogoutButton);
     }
 }

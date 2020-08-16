@@ -1,14 +1,18 @@
 package com.mary.sharehouseproject.util;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -30,11 +34,22 @@ public class ToolbarNavigationHelper {
     private static FirebaseUser firebaseUser;
     private static Menu menu;
 
-    public static void enableNavigationHelper(final Context context, NavigationView view, final DrawerLayout drawerLayout, TextView logoText, final ImageView hamburgerButton, final ImageView searchButton){
+    public static void enableNavigationHelper(final Context context, NavigationView view,
+                                              final DrawerLayout drawerLayout,
+                                              TextView logoText,
+                                              final ImageView hamburgerButton,
+                                              final ImageView searchButton,
+                                              final ImageView logoutButton){
 
         mAuth = FirebaseAuth.getInstance();
         menu = view.getMenu();
         firebaseUser = mAuth.getCurrentUser();
+
+        if(firebaseUser!=null){
+            logoutButton.setVisibility(View.VISIBLE);
+        }else{
+            logoutButton.setVisibility(View.GONE);
+        }
 
         logoText.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +57,30 @@ public class ToolbarNavigationHelper {
                 Intent intent0=new Intent(context, MainActivity.class);
                 intent0.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 context.startActivity(intent0);
+            }
+        });
+
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new AlertDialog.Builder(context)
+                        .setTitle("Logout")
+                        .setMessage("로그아웃 하시겠습니까?")
+                        .setPositiveButton("예", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                FirebaseAuth.getInstance().signOut();
+                                Intent intent0=new Intent(context, MainActivity.class);
+                                intent0.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                context.startActivity(intent0);
+                            }
+                        })
+                        .setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Toast.makeText(context, "로그아웃을 취소하였습니다.", Toast.LENGTH_SHORT).show();
+                            }
+                        }).show();
             }
         });
 

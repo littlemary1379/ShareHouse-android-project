@@ -20,8 +20,10 @@ abstract class BaseDemoActivity(@LayoutRes  private val layoutId: Int = R.layout
             it.setDisplayShowHomeEnabled(true)
         }
 
-        setUpMap()
+        setUpMap();
+
     }
+
 
     private fun setUpMap() {
 
