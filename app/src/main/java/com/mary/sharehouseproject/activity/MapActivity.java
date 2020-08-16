@@ -59,7 +59,6 @@ public class MapActivity extends BaseDemoActivity {
     private NavigationView mainNavigationView;
     private Toolbar toolbar;
     private Context mapContext=MapActivity.this;
-    private InfoWindow infoWindow;
 
     @Override
     public  void onMapReady(@NonNull NaverMap naverMap) {

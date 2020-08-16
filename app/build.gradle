@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.mary.sharehouseproject"
-        minSdkVersion 21
+        minSdkVersion 24
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -69,6 +69,10 @@ android {
         //구글 파이어베이스 로그인 인증
         implementation 'com.firebaseui:firebase-ui-auth:6.2.0'
         implementation 'com.google.firebase:firebase-auth:19.3.2'
+
+        //Gilde
+        implementation 'com.github.bumptech.glide:glide:4.11.0'
+        annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
     }
 
