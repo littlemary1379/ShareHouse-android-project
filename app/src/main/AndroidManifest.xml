@@ -31,7 +31,7 @@
 
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
-            android:value="x" />
+            android:value="5ougbolitc" />
     </application>
 
 </manifest>
