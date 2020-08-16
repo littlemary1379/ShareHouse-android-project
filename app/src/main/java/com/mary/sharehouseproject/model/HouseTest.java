@@ -10,6 +10,7 @@ import ted.gun0912.clustering.geometry.TedLatLng;
 @AllArgsConstructor
 @NoArgsConstructor
 public class HouseTest implements TedClusterItem {
+    private int id;
     private double locationX;
     private double locationY;
 
