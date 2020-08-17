@@ -58,7 +58,7 @@ public class HouseDetailActivity extends BaseMapDetailActivity {
     private House house;
     private Room room;
     private List<Room> roomList;
-    private TextView tvContent, tvHashTag, tvAddress, tvGender, tvContractEndDate, tvMaxPerson, tvHouseForm, tvConstruction, tvAddLink;
+    private TextView tvContent, tvHashTag, tvAddress, tvGender, tvContractEndDate, tvMaxPerson, tvHouseForm, tvConstruction, tvAddLink,tvSubway,tvUniversity,tvFacilities,tvBus,tvMart,tvHospital;
     private RecyclerView rcRoom;
     private RoomRecyclerAdapter recyclerAdapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -130,6 +130,12 @@ public class HouseDetailActivity extends BaseMapDetailActivity {
         tvConstruction = findViewById(R.id.tv_construction);
         ivConstImg = findViewById(R.id.iv_constImg);
         tvAddLink = findViewById(R.id.tv_addLink);
+        tvSubway=findViewById(R.id.tv_subway);
+        tvUniversity=findViewById(R.id.tv_university);
+        tvFacilities=findViewById(R.id.tv_facilities);
+        tvBus=findViewById(R.id.tv_bus);
+        tvMart=findViewById(R.id.tv_mart);
+        tvHospital=findViewById(R.id.tv_hospital);
     }
 
     //툴바용 전역변수에 값 부여
@@ -223,6 +229,13 @@ public class HouseDetailActivity extends BaseMapDetailActivity {
         tvHouseForm.setText(house.getHouseForm());
         tvConstruction.setText(houseDetail.getConstruction());
         Glide.with(this).load(houseDetail.getConstImg()).into(ivConstImg);
+        tvSubway.setText(houseDetail.getSubway());
+        tvUniversity.setText(houseDetail.getUniversity());
+        tvFacilities.setText(houseDetail.getFacilities());
+        tvBus.setText(houseDetail.getBus());
+        tvMart.setText(houseDetail.getMart());
+        tvHospital.setText(houseDetail.getHospital());
+
     }
 
     private void initRoomData(final String documentId, String detailId) {

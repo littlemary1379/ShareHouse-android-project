@@ -21,4 +21,5 @@ public class Room {
     private String deposit;
     private String monthly;
     private Timestamp moveInDate;
+
 }

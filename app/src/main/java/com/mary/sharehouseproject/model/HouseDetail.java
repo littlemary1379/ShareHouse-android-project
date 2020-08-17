@@ -20,4 +20,10 @@ public class HouseDetail {
     private int maxPerson;
     private String construction;
     private String constImg;
+    private String subway;
+    private String university;
+    private String facilities;
+    private String bus;
+    private String mart;
+    private String hospital;
 }
