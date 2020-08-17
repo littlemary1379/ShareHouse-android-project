@@ -1,17 +1,13 @@
 package com.mary.sharehouseproject.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.FragmentManager;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -20,18 +16,13 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.mary.sharehouseproject.HouseDetailActivity;
 import com.mary.sharehouseproject.R;
 import com.mary.sharehouseproject.model.House;
-import com.mary.sharehouseproject.model.HouseTest;
 import com.mary.sharehouseproject.util.ToolbarNavigationHelper;
-import com.naver.maps.geometry.LatLng;
 import com.naver.maps.geometry.LatLngBounds;
 import com.naver.maps.map.CameraPosition;
 import com.naver.maps.map.CameraUpdate;
-import com.naver.maps.map.MapFragment;
 import com.naver.maps.map.NaverMap;
-import com.naver.maps.map.NaverMapSdk;
 import com.naver.maps.map.overlay.InfoWindow;
 
 import java.util.ArrayList;
@@ -40,10 +31,7 @@ import java.util.List;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 import lombok.NonNull;
-import ted.gun0912.clustering.MarkerManager;
-import ted.gun0912.clustering.TedMarker;
 import ted.gun0912.clustering.clustering.TedClusterItem;
-import ted.gun0912.clustering.geometry.TedLatLng;
 import ted.gun0912.clustering.naver.TedNaverClustering;
 
 
@@ -72,14 +60,6 @@ public class MapActivity extends BaseDemoActivity {
         setupToolbarNavigationView();
         getItems();
 
-        InfoWindow infoWindow = new InfoWindow();
-        infoWindow.setAdapter(new InfoWindow.DefaultTextAdapter(mapContext) {
-            @NonNull
-            @Override
-            public CharSequence getText(@NonNull InfoWindow infoWindow) {
-                return "정보 창 내용";
-            }
-        });
     }
 
     //툴바용 전역변수에 값 부여
@@ -126,6 +106,8 @@ public class MapActivity extends BaseDemoActivity {
                                                                  Log.d(TAG, "invoke: house : "+house.getId());
                                                                  Intent intent=new Intent(mapContext, HouseDetailActivity.class);
                                                                  intent.putExtra("id",house.getId());
+                                                                 intent.putExtra("lat",house.getLat());
+                                                                 intent.putExtra("lng",house.getLng());
                                                                  startActivity(intent);
                                                                  return null;
                                                              }

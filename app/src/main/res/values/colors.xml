@@ -8,5 +8,7 @@
     <color name="colorDarkGray">#3A3A37</color>
     <color name="colorBackgroundGray">#F4F4F4</color>
     <color name="colorBackgroundLightGray">#E3E3E3</color>
+    <color name="colorRealWhite">#FFFFFF</color>
+
 
 </resources>

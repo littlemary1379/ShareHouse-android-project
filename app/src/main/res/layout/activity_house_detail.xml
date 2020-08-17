@@ -5,7 +5,7 @@
     android:id="@+id/layout_houseDetail_Drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HouseDetailActivity">
+    tools:context=".activity.HouseDetailActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,7 +36,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:text="@string/example_houseDetail_contents" />
+                    android:text="  " />
 
                 <TextView
                     android:id="@+id/tv_hashTag"
@@ -208,79 +208,131 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_margin="15dp"
-                    android:stretchColumns="*">
+                    >
 
                     <TableRow>
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:background="@color/colorBackgroundLightGray"
                             android:gravity="center"
                             android:padding="5dp"
+                            android:textSize="12dp"
                             android:text="이름"/>
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:background="@color/colorBackgroundLightGray"
                             android:gravity="center"
                             android:padding="5dp"
+                            android:textSize="12dp"
                             android:text="성별"/>
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:background="@color/colorBackgroundLightGray"
                             android:gravity="center"
                             android:padding="5dp"
+                            android:textSize="12dp"
                             android:text="타입"/>
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:background="@color/colorBackgroundLightGray"
                             android:gravity="center"
                             android:padding="5dp"
+                            android:textSize="12dp"
                             android:text="면적"/>
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:background="@color/colorBackgroundLightGray"
                             android:gravity="center"
                             android:padding="5dp"
+                            android:textSize="12dp"
                             android:text="보증금"/>
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:background="@color/colorBackgroundLightGray"
                             android:gravity="center"
                             android:padding="5dp"
+                            android:textSize="12dp"
                             android:text="월세"/>
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:background="@color/colorBackgroundLightGray"
                             android:gravity="center"
                             android:padding="5dp"
+                            android:textSize="12dp"
                             android:text="입주"/>
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:background="@color/colorBackgroundLightGray"
                             android:gravity="center"
                             android:padding="5dp"
+                            android:textSize="12dp"
                             android:text="신청"/>
+
 
                     </TableRow>
 
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rc_room"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scrollbars="vertical"/>
 
                 </TableLayout>
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="- 미성년자 또는 41세 이상, 회원 가입시 개인정보가 계약자와 다를 경우 입주 불가능 \n- 운영관리비와 선불공과금은 매월 별도 납부 함 \n- '투어신청'은 두 지점까지 가능 \n- '투어신청'은 입주가능일 45일 전부터 가능 \n- '투어가능알림' 신청 후 투어가 가능해질 때 '투어신청가능'으로 SMS 자동문자 발송 \n- 우주의 하우스는 반전세 적용이 가능합니다. \n(보증금 1,000만원 상향 시 월세 5만원 할인) \n- 경우에 따라 반전세 적용이 불가한 하우스도 있으니 반드시 확인 부탁드립니다."
+                    android:textSize="12dp"/>
+
+                <TextView
+                    android:id="@+id/tv_addLink"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:textColor="@color/colorMainChorale"
+                    android:text="[자세히 알아보기]"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="위치 및 교통"/>
+
+                <fragment
+                    android:id="@+id/detail_map"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:name="com.naver.maps.map.MapFragment"/>
 
             </LinearLayout>
         </ScrollView>
