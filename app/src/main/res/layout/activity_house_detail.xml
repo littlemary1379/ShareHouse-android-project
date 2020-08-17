@@ -108,21 +108,21 @@
 
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_margin="3dp"
+                            android:background="@color/colorBackgroundLightGray"
                             android:gravity="center"
                             android:padding="15dp"
                             android:text="지점 계약"
-                            android:textSize="16sp"
-                            android:layout_margin="3dp"
-                            android:background="@color/colorBackgroundLightGray"/>
+                            android:textSize="16sp" />
 
                         <TextView
                             android:id="@+id/tv_contractEndDate"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:background="@drawable/border_all"
                             android:gravity="center"
                             android:padding="15dp"
-                            android:text="testText"
-                            android:background="@drawable/border_all"/>
+                            android:text="testText" />
 
                     </TableRow>
 
@@ -131,21 +131,21 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_margin="3dp"
+                            android:background="@color/colorBackgroundLightGray"
                             android:gravity="center"
                             android:padding="15dp"
                             android:text="최대 거주"
-                            android:textSize="16sp"
-                            android:layout_margin="3dp"
-                            android:background="@color/colorBackgroundLightGray"/>
+                            android:textSize="16sp" />
 
                         <TextView
                             android:id="@+id/tv_maxPerson"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:background="@drawable/border_all"
                             android:gravity="center"
                             android:padding="15dp"
-                            android:text="testText"
-                            android:background="@drawable/border_all"/>
+                            android:text="testText" />
 
                     </TableRow>
 
@@ -154,21 +154,21 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_margin="3dp"
+                            android:background="@color/colorBackgroundLightGray"
                             android:gravity="center"
                             android:padding="15dp"
                             android:text="주택형태"
-                            android:textSize="16sp"
-                            android:layout_margin="3dp"
-                            android:background="@color/colorBackgroundLightGray"/>
+                            android:textSize="16sp" />
 
                         <TextView
                             android:id="@+id/tv_houseForm"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:background="@drawable/border_all"
                             android:gravity="center"
                             android:padding="15dp"
-                            android:text="testText"
-                            android:background="@drawable/border_all"/>
+                            android:text="testText" />
 
                     </TableRow>
 
@@ -177,25 +177,111 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_margin="3dp"
+                            android:background="@color/colorBackgroundLightGray"
                             android:gravity="center"
                             android:padding="15dp"
                             android:text="구조"
-                            android:textSize="16sp"
-                            android:layout_margin="3dp"
-                            android:background="@color/colorBackgroundLightGray"/>
+                            android:textSize="16sp" />
 
                         <TextView
                             android:id="@+id/tv_construction"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:background="@drawable/border_all"
                             android:gravity="center"
                             android:padding="15dp"
-                            android:text="testText"
-                            android:background="@drawable/border_all"/>
+                            android:text="testText" />
 
                     </TableRow>
 
                 </TableLayout>
+
+                <ImageView
+                    android:id="@+id/iv_constImg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp" />
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="15dp"
+                    android:stretchColumns="*">
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorBackgroundLightGray"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="이름"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorBackgroundLightGray"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="성별"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorBackgroundLightGray"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="타입"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorBackgroundLightGray"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="면적"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorBackgroundLightGray"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="보증금"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorBackgroundLightGray"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="월세"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorBackgroundLightGray"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="입주"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorBackgroundLightGray"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="신청"/>
+
+                    </TableRow>
+
+
+                </TableLayout>
+
+
             </LinearLayout>
         </ScrollView>
 
@@ -208,5 +294,6 @@
         android:layout_gravity="start|left"
         app:headerLayout="@layout/action_bar_header"
         app:menu="@menu/navigation_menu" />
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

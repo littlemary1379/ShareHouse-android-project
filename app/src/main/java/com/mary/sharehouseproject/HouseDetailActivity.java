@@ -31,7 +31,7 @@ import java.util.Date;
 public class HouseDetailActivity extends AppCompatActivity {
     private static final String TAG = "HouseDetailActivity";
 
-    private ImageView mainImageView;
+    private ImageView mainImageView,ivConstImg;
     private FirebaseFirestore db;
     private String documentId;
     private HouseDetail houseDetail;
@@ -76,6 +76,7 @@ public class HouseDetailActivity extends AppCompatActivity {
         tvMaxPerson=findViewById(R.id.tv_maxPerson);
         tvHouseForm=findViewById(R.id.tv_houseForm);
         tvConstruction=findViewById(R.id.tv_construction);
+        ivConstImg=findViewById(R.id.iv_constImg);
     }
 
     //툴바용 전역변수에 값 부여
@@ -155,6 +156,7 @@ public class HouseDetailActivity extends AppCompatActivity {
         tvMaxPerson.setText(houseDetail.getMaxPerson()+"명");
         tvHouseForm.setText(house.getHouseForm());
         tvConstruction.setText(houseDetail.getConstruction());
+        Glide.with(this).load(houseDetail.getConstImg()).into(ivConstImg);
     }
 
 }

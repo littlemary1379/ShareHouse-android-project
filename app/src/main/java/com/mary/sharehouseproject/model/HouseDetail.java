@@ -19,4 +19,5 @@ public class HouseDetail {
     private Timestamp contractEndDate;
     private int maxPerson;
     private String construction;
+    private String constImg;
 }
