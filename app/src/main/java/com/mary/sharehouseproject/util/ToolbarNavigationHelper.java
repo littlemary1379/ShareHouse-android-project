@@ -27,6 +27,7 @@ import com.mary.sharehouseproject.activity.MainActivity;
 import com.mary.sharehouseproject.activity.MapActivity;
 import com.mary.sharehouseproject.activity.MoveInActivity;
 import com.mary.sharehouseproject.R;
+import com.mary.sharehouseproject.activity.MypageActivity;
 
 import org.w3c.dom.Text;
 
@@ -149,8 +150,10 @@ public class ToolbarNavigationHelper {
                         context.startActivity(intent4);
                         break;
 
-                    case R.id.menu_brand:
-                        FirebaseAuth.getInstance().signOut();
+                    case R.id.menu_mypage:
+                        Intent intent5=new Intent(context, MypageActivity.class);
+                        intent5.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        context.startActivity(intent5);
             }
 
             return false;
