@@ -9,7 +9,6 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,16 +19,15 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.mary.sharehouseproject.R;
 import com.mary.sharehouseproject.activity.FAQActivity;
 import com.mary.sharehouseproject.activity.LendhouseActivity;
 import com.mary.sharehouseproject.activity.LoginActivity;
 import com.mary.sharehouseproject.activity.MainActivity;
 import com.mary.sharehouseproject.activity.MapActivity;
-import com.mary.sharehouseproject.activity.MoveInActivity;
-import com.mary.sharehouseproject.R;
 import com.mary.sharehouseproject.activity.MypageActivity;
 
-import org.w3c.dom.Text;
+
 
 public class ToolbarNavigationHelper {
     private static final String TAG = "ToolbarNavigationHelper";
@@ -126,12 +124,7 @@ public class ToolbarNavigationHelper {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 drawerLayout.closeDrawer(Gravity.LEFT);
                 switch (item.getItemId()){
-                    case R.id.menu_housemenual:
-                        Intent intent1=new Intent(context, MoveInActivity.class);
-                        intent1.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                        context.startActivity(intent1);
 
-                        break;
                     case R.id.menu_login_and_join:
                         Intent intent2=new Intent(context,LoginActivity.class);
                         intent2.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);

@@ -24,7 +24,6 @@ public class FAQActivity extends AppCompatActivity {
     private FaqFragAdapter adapter;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private RecyclerView rvFaq;
 
 
     //툴바용 전역변수 설정

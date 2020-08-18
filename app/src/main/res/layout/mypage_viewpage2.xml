@@ -29,6 +29,7 @@
                     android:textSize="18sp" />
 
                 <TextView
+                    android:id="@+id/tv_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/notosanskr_light"
@@ -52,6 +53,7 @@
                     android:textSize="18sp" />
 
                 <EditText
+                    android:id="@+id/et_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/notosanskr_light"
@@ -75,6 +77,7 @@
                     android:textSize="18sp" />
 
                 <EditText
+                    android:id="@+id/et_phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/notosanskr_light"
@@ -100,11 +103,13 @@
                     android:textSize="18sp" />
 
                 <RadioGroup
+                    android:id="@+id/rdGroup_gender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
                     <RadioButton
+                        android:id="@+id/rdBtn_male"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -113,6 +118,7 @@
                         android:fontFamily="@font/notosanskr_light"/>
 
                     <RadioButton
+                        android:id="@+id/rdBtn_female"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -175,6 +181,17 @@
 
             </LinearLayout>
             <!--비밀번호 영역 종료-->
+
+            <Button
+                android:id="@+id/btn_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="수정"
+                android:layout_gravity="right"
+                android:textSize="16dp"
+                android:fontFamily="@font/notosanskr_bold"
+                android:textColor="@color/colorRealWhite"
+                android:background="@color/colorMainChorale"/>
 
         </LinearLayout>
     </ScrollView>
