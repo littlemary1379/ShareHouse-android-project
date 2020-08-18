@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.HouseDetailActivity"></activity>
+        <activity android:name=".activity.SearchActivity"></activity>
+        <activity android:name=".activity.HouseDetailActivity" />
         <activity android:name=".activity.LendhouseActivity" />
         <activity android:name=".activity.MypageActivity" />
         <activity android:name=".activity.FAQActivity" />

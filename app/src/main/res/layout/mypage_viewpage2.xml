@@ -193,7 +193,8 @@
                 android:textSize="16dp"
                 android:fontFamily="@font/notosanskr_bold"
                 android:textColor="@color/colorRealWhite"
-                android:background="@color/colorMainChorale"/>
+                android:background="@color/colorMainChorale"
+                android:layout_marginBottom="40dp"/>
 
         </LinearLayout>
     </ScrollView>

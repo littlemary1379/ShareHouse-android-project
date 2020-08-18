@@ -7,6 +7,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,6 +18,8 @@ import com.mary.sharehouseproject.util.ToolbarNavigationHelper;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "Main_Activity";
+
+    private EditText etSearch;
 
     //툴바용 전역변수 설정
     private TextView logoText;
@@ -31,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initToolbar();
+        init();
+        listener();
         setSupportActionBar(toolbar);
         setupToolbarNavigationView();
     }
@@ -49,5 +55,22 @@ public class MainActivity extends AppCompatActivity {
     //툴바 리스너
     private void setupToolbarNavigationView(){
         ToolbarNavigationHelper.enableNavigationHelper(mContext,mainNavigationView,mainDrawerLayout,logoText,ivHamburgerButton,ivToolbarSearchButton,ivLogoutButton);
+    }
+
+    private void init(){
+        etSearch=findViewById(R.id.et_search);
+    }
+
+    private void listener(){
+        etSearch.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if(b==true){
+                    Intent intent=new Intent(mContext,SearchActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                    startActivity(intent);
+                }
+            }
+        });
     }
 }
