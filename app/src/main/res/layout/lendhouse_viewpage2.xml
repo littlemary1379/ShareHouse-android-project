@@ -165,280 +165,288 @@
                     android:text="WOOZOO에 위탁을 맡겨야 하는 이유"
                     android:textSize="20sp" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp">
+                    android:orientation="vertical"
+                    >
 
-                    <ImageView
-                        android:id="@+id/iv_adventage1"
-                        android:layout_width="50dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_setting_chorale"
 
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/tv_adventage1"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <LinearLayout
-                        android:id="@+id/tv_adventage1"
-                        android:layout_width="wrap_content"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/iv_adventage1"
-                        app:layout_constraintTop_toTopOf="parent">
+                        android:layout_margin="10dp"
+                        >
 
-                        <TextView
+                        <ImageView
+                            android:id="@+id/iv_adventage1"
+                            android:layout_width="50dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_setting_chorale"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/tv_adventage1"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <LinearLayout
+                            android:id="@+id/tv_adventage1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="운영 방식"
-                            android:textSize="16sp" />
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/iv_adventage1"
+                            app:layout_constraintTop_toTopOf="parent">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="우주와 임대차계약을 맺고, 쉐어하우스 운영을 위탁하는 방식입니다. "
-                            android:textSize="12sp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="운영 방식"
+                                android:textSize="16sp" />
 
-                    </LinearLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="우주와 임대차계약을 맺고, 쉐어하우스 운영을 위탁하는 방식입니다. "
+                                android:textSize="12sp" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        </LinearLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp">
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <ImageView
-                        android:id="@+id/iv_adventage2"
-                        android:layout_width="50dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_money_maincholare"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/tv_adventage2"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <LinearLayout
-                        android:id="@+id/tv_adventage2"
-                        android:layout_width="wrap_content"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/iv_adventage2"
-                        app:layout_constraintTop_toTopOf="parent">
+                        android:layout_margin="10dp">
 
-                        <TextView
+                        <ImageView
+                            android:id="@+id/iv_adventage2"
+                            android:layout_width="50dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_money_maincholare"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/tv_adventage2"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <LinearLayout
+                            android:id="@+id/tv_adventage2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="수수료"
-                            android:textSize="16sp" />
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/iv_adventage2"
+                            app:layout_constraintTop_toTopOf="parent">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="우주와 임대차계약을 맺고, 쉐어하우스 운영을 위탁하는 방식입니다. "
-                            android:textSize="12sp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="수수료"
+                                android:textSize="16sp" />
 
-                    </LinearLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="우주와 임대차계약을 맺고, 쉐어하우스 운영을 위탁하는 방식입니다. "
+                                android:textSize="12sp" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        </LinearLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp">
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <ImageView
-                        android:id="@+id/iv_adventage3"
-                        android:layout_width="50dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_admin_chorale"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/tv_adventage3"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <LinearLayout
-                        android:id="@+id/tv_adventage3"
-                        android:layout_width="wrap_content"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/iv_adventage3"
-                        app:layout_constraintTop_toTopOf="parent">
+                        android:layout_margin="10dp">
 
-                        <TextView
+                        <ImageView
+                            android:id="@+id/iv_adventage3"
+                            android:layout_width="50dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_admin_chorale"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/tv_adventage3"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <LinearLayout
+                            android:id="@+id/tv_adventage3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="관리의 범위(시설 문제)"
-                            android:textSize="16sp" />
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/iv_adventage3"
+                            app:layout_constraintTop_toTopOf="parent">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="우주와 임대차계약을 맺고, 쉐어하우스 운영을 위탁하는 방식입니다. "
-                            android:textSize="12sp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="관리의 범위(시설 문제)"
+                                android:textSize="16sp" />
 
-                    </LinearLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="우주와 임대차계약을 맺고, 쉐어하우스 운영을 위탁하는 방식입니다. "
+                                android:textSize="12sp" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        </LinearLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp">
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <ImageView
-                        android:id="@+id/iv_adventage4"
-                        android:layout_width="50dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_sync_chorale"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/tv_adventage4"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <LinearLayout
-                        android:id="@+id/tv_adventage4"
-                        android:layout_width="wrap_content"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/iv_adventage4"
-                        app:layout_constraintTop_toTopOf="parent">
+                        android:layout_margin="10dp">
 
-                        <TextView
+                        <ImageView
+                            android:id="@+id/iv_adventage4"
+                            android:layout_width="50dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_sync_chorale"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/tv_adventage4"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <LinearLayout
+                            android:id="@+id/tv_adventage4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="절차"
-                            android:textSize="16sp" />
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/iv_adventage4"
+                            app:layout_constraintTop_toTopOf="parent">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="우주와 임대차계약을 맺고, 쉐어하우스 운영을 위탁하는 방식입니다. "
-                            android:textSize="12sp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="절차"
+                                android:textSize="16sp" />
 
-                    </LinearLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="우주와 임대차계약을 맺고, 쉐어하우스 운영을 위탁하는 방식입니다. "
+                                android:textSize="12sp" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        </LinearLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp">
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <ImageView
-                        android:id="@+id/iv_adventage5"
-                        android:layout_width="50dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_date_chorale"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/tv_adventage5"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <LinearLayout
-                        android:id="@+id/tv_adventage5"
-                        android:layout_width="wrap_content"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/iv_adventage5"
-                        app:layout_constraintTop_toTopOf="parent">
+                        android:layout_margin="10dp">
 
-                        <TextView
+                        <ImageView
+                            android:id="@+id/iv_adventage5"
+                            android:layout_width="50dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_date_chorale"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/tv_adventage5"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <LinearLayout
+                            android:id="@+id/tv_adventage5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="계약기간"
-                            android:textSize="16sp" />
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/iv_adventage5"
+                            app:layout_constraintTop_toTopOf="parent">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="우주와 임대차계약을 맺고, 쉐어하우스 운영을 위탁하는 방식입니다. "
-                            android:textSize="12sp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="계약기간"
+                                android:textSize="16sp" />
 
-                    </LinearLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="우주와 임대차계약을 맺고, 쉐어하우스 운영을 위탁하는 방식입니다. "
+                                android:textSize="12sp" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        </LinearLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp">
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <ImageView
-                        android:id="@+id/iv_adventage6"
-                        android:layout_width="50dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_timelapse_chorale"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/tv_adventage6"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <LinearLayout
-                        android:id="@+id/tv_adventage6"
-                        android:layout_width="wrap_content"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/iv_adventage6"
-                        app:layout_constraintTop_toTopOf="parent">
+                        android:layout_margin="10dp">
 
-                        <TextView
+                        <ImageView
+                            android:id="@+id/iv_adventage6"
+                            android:layout_width="50dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_timelapse_chorale"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/tv_adventage6"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <LinearLayout
+                            android:id="@+id/tv_adventage6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="공실률"
-                            android:textSize="16sp" />
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/iv_adventage6"
+                            app:layout_constraintTop_toTopOf="parent">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="공실율은 10% 내외로 운영 되며, \n운영 보고서를 통해 매월 보고 받으실 수 있습니다."
-                            android:textSize="12sp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="공실률"
+                                android:textSize="16sp" />
 
-                    </LinearLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="공실율은 10% 내외로 운영 되며, \n운영 보고서를 통해 매월 보고 받으실 수 있습니다."
+                                android:textSize="12sp" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        </LinearLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp">
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <ImageView
-                        android:id="@+id/iv_adventage7"
-                        android:layout_width="50dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_money_chorale"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/tv_adventage7"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <LinearLayout
-                        android:id="@+id/tv_adventage7"
-                        android:layout_width="wrap_content"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/iv_adventage7"
-                        app:layout_constraintTop_toTopOf="parent">
+                        android:layout_margin="10dp">
 
-                        <TextView
+                        <ImageView
+                            android:id="@+id/iv_adventage7"
+                            android:layout_width="50dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_money_chorale"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/tv_adventage7"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <LinearLayout
+                            android:id="@+id/tv_adventage7"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="보장금액"
-                            android:textSize="16sp" />
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/iv_adventage7"
+                            app:layout_constraintTop_toTopOf="parent">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="공실율은 10% 내외로 운영 되며, \n운영 보고서를 통해 매월 보고 받으실 수 있습니다."
-                            android:textSize="12sp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="보장금액"
+                                android:textSize="16sp" />
 
-                    </LinearLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="공실율은 10% 내외로 운영 되며, \n운영 보고서를 통해 매월 보고 받으실 수 있습니다."
+                                android:textSize="12sp" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        </LinearLayout>
 
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
             </LinearLayout>
             <!--장점 종료-->
 
@@ -454,12 +462,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/colorBackgroundLightGray"
+                    android:fontFamily="@font/notosanskr_bold"
                     android:gravity="center"
+                    android:includeFontPadding="false"
                     android:paddingTop="18dp"
                     android:paddingBottom="50dp"
                     android:text="궁금하신 점 망설이지 말고 \n 상담부터 신청하세요"
-                    android:fontFamily="@font/notosanskr_bold"
-                    android:includeFontPadding="false"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -468,10 +476,10 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="75dp"
                     android:background="@android:color/white"
                     android:orientation="vertical"
                     android:padding="15dp"
-                    android:layout_marginTop="75dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -481,14 +489,14 @@
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:hint="보유 부동산 주소를 입력하세요."
-                        android:textSize="16sp"
-                        />
+                        android:textSize="16sp" />
+
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
+                        android:layout_gravity="center"
                         android:background="@drawable/border_darkgray_2px"
-                        android:text="다음"
-                        android:layout_gravity="center"/>
+                        android:text="다음" />
 
                 </LinearLayout>
 

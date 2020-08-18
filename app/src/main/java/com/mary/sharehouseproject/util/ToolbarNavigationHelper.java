@@ -28,13 +28,17 @@ import com.mary.sharehouseproject.activity.MapActivity;
 import com.mary.sharehouseproject.activity.MoveInActivity;
 import com.mary.sharehouseproject.R;
 
+import org.w3c.dom.Text;
+
 public class ToolbarNavigationHelper {
     private static final String TAG = "ToolbarNavigationHelper";
     private static FirebaseAuth mAuth;
     private static FirebaseUser firebaseUser;
     private static Menu menu;
 
-    public static void enableNavigationHelper(final Context context, NavigationView view,
+
+    public static void enableNavigationHelper(final Context context,
+                                              NavigationView view,
                                               final DrawerLayout drawerLayout,
                                               TextView logoText,
                                               final ImageView hamburgerButton,
@@ -47,6 +51,11 @@ public class ToolbarNavigationHelper {
 
         if(firebaseUser!=null){
             logoutButton.setVisibility(View.VISIBLE);
+            View HeaderView=view.getHeaderView(0);
+            TextView tvHeader=HeaderView.findViewById(R.id.tv_header);
+            tvHeader.setText(firebaseUser.getEmail()+"님, \n반갑습니다!");
+
+
         }else{
             logoutButton.setVisibility(View.GONE);
         }

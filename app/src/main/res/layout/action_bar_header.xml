@@ -11,11 +11,12 @@
         android:scaleType="centerCrop"/>
 
     <TextView
+        android:id="@+id/tv_header"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#77000000"
         android:text="--"
-        android:textSize="30dp"
+        android:textSize="22sp"
         android:textColor="@android:color/white"
         android:textStyle="bold"
         android:gravity="center"/>

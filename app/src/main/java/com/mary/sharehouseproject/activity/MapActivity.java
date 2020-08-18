@@ -67,7 +67,7 @@ public class MapActivity extends BaseDemoActivity {
         logoText=findViewById(R.id.tv_logoText);
         ivHamburgerButton=findViewById(R.id.iv_hamburgerButton);
         ivToolbarSearchButton=findViewById(R.id.iv_toolbarSearchButton);
-        mainDrawerLayout=findViewById(R.id.layout_mypage_Drawer);
+        mainDrawerLayout=findViewById(R.id.layout_map_drawer);
         toolbar=findViewById(R.id.toolbar_main);
         mainNavigationView=findViewById(R.id.navigation);
         ivLogoutButton=findViewById(R.id.iv_logoutButton);
