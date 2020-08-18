@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -41,12 +42,13 @@ public class MypageViewPager2 extends Fragment {
     private User user;
 
     private TextView tvEmail;
-    private EditText etName,etPhone;
+    private EditText etName,etPhone,etUpdatePw,etUpdatePw2;
     private RadioGroup genderRadioGroup;
     private RadioButton rdBtnMale,rdBtnFemale;
     private Button btnUpdate;
+    private FirebaseUser firebaseUser;
 
-    private String userEmail, documentId, updateName,updatePhone,updateGender;
+    private String userEmail, documentId, updateName,updatePhone,updateGender,updatePw,updatePw2;
 
     @Nullable
     @Override
@@ -55,7 +57,7 @@ public class MypageViewPager2 extends Fragment {
 
         mAuth=FirebaseAuth.getInstance();
         db=FirebaseFirestore.getInstance();
-        FirebaseUser firebaseUser=mAuth.getCurrentUser();
+        firebaseUser=mAuth.getCurrentUser();
         userEmail=firebaseUser.getEmail();
 
         init(v);
@@ -97,6 +99,8 @@ public class MypageViewPager2 extends Fragment {
         rdBtnMale=v.findViewById(R.id.rdBtn_male);
         rdBtnFemale=v.findViewById(R.id.rdBtn_female);
         btnUpdate=v.findViewById(R.id.btn_update);
+        etUpdatePw=v.findViewById(R.id.et_update_pw);
+        etUpdatePw2=v.findViewById(R.id.et_update_pw2);
     }
 
     private void UpdateUI(User user){
@@ -115,6 +119,7 @@ public class MypageViewPager2 extends Fragment {
             @Override
             public void onClick(View v) {
                 updateDatabase(documentId);
+                updatePassword();
             }
         });
     }
@@ -138,6 +143,7 @@ public class MypageViewPager2 extends Fragment {
             @Override
             public void onSuccess(Void aVoid) {
                 Log.d(TAG, "onSuccess: 업데이트에 성공하였습니다.");
+                Toast.makeText(getContext(), "업데이트에 성공하셨습니다.", Toast.LENGTH_SHORT).show();
                 Intent intent=new Intent(getContext(), MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
@@ -146,9 +152,39 @@ public class MypageViewPager2 extends Fragment {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Log.d(TAG, "onFailure: 업데이트에 실패하셨습니다");
+                Toast.makeText(getContext(), "업데이트에 실패했습니다.", Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
         });
+
+    }
+
+    private void updatePassword(){
+        updatePw=etUpdatePw.getText().toString();
+        updatePw2=etUpdatePw2.getText().toString();
+        if(updatePw==null||updatePw2==null||updatePw.equals("")||updatePw2.equals("")){
+            return;
+        }
+
+        if(updatePw.equals(updatePw2)){
+            firebaseUser.updatePassword(updatePw)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful()){
+                                Log.d(TAG, "onComplete: 업뎃 성공");
+                                Toast.makeText(getContext(), "비밀번호 업데이트 성공", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Log.d(TAG, "onFailure: 업데이트 실패");
+                    Toast.makeText(getContext(), "업데이트에 실패하셨습니다", Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
+                }
+            });
+        }
 
     }
 }
