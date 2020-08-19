@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -36,6 +37,7 @@ import com.mary.sharehouseproject.util.ToolbarNavigationHelper;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.Inflater;
 
 public class SearchActivity extends AppCompatActivity {
     private static final String TAG = "SearchActivity";
@@ -58,7 +60,7 @@ public class SearchActivity extends AppCompatActivity {
     private String databasePath;
     private String address;
     private int houseId;
-    private SearchHouseDto searchHouseDto;
+    private SearchHouseDto searchHouseDto, searchHouseDtoByPos;
     private List<SearchHouseDto> searchHouseDtoList=new ArrayList<>();
     private Handler handler=new Handler();
 
@@ -114,6 +116,8 @@ public class SearchActivity extends AppCompatActivity {
         etSearchKeyword=findViewById(R.id.et_search_keyword);
     }
 
+    //검색 로직 : 하위 컬렉션 리스트에서 일치하는 값 도출 -> 주소 전역변수에 넣기 + 하위 컬렉션의 경로를 split 해서 상위 경로의 방 호수 도출
+    // -> 상위 경로의 id, 방 호수, LatLng를 ArrayList로 만들어서 RecyclerView에 넣기 -> ClickListener을 통해 상세 페이지 inflater 이동
     private  void listener(){
         constMap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -279,8 +283,8 @@ public class SearchActivity extends AppCompatActivity {
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         Log.d(TAG, "onSuccess: 성공"+documentSnapshot.getData());
                         House house=documentSnapshot.toObject(House.class);
-                        houseId=house.getHouseNumber();
-                        searchHouseDto=new SearchHouseDto(houseId, address);
+
+                        searchHouseDto=new SearchHouseDto(house.getId(),house.getHouseNumber(), address,house.getLat(),house.getLng());
                         searchHouseDtoList.add(searchHouseDto);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
@@ -307,10 +311,27 @@ public class SearchActivity extends AppCompatActivity {
                             rcSearch.setAdapter(searchRecyclerAdaper);
                         }
                     });
+                    searchRecyclerAdaper.setOnItemClickListener(new SearchRecyclerAdaper.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(View v, int pos) {
+                            //Log.d(TAG, "onItemClick: "+pos);
+                            searchHouseDtoByPos=searchHouseDtoList.get(pos);
+                            Log.d(TAG, "onItemClick: "+searchHouseDtoByPos);
+                            startHouseDetailActivity(searchHouseDtoByPos);
+                        }
+                    });
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
         }).start();
+    }
+    private void startHouseDetailActivity(SearchHouseDto searchHouseDtoByPos){
+        Intent intent=new Intent(mContext,HouseDetailActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        intent.putExtra("id",searchHouseDtoByPos.getId());
+        intent.putExtra("lat",searchHouseDtoByPos.getLat());
+        intent.putExtra("lng",searchHouseDtoByPos.getLng());
+        startActivity(intent);
     }
 }

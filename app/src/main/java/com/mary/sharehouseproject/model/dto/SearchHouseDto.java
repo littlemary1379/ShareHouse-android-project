@@ -10,6 +10,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class SearchHouseDto {
+    private int id;
     private int houseId;
     private String address;
+    private double lat;
+    private double lng;
 }
