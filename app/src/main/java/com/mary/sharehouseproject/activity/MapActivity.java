@@ -1,13 +1,23 @@
 package com.mary.sharehouseproject.activity;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -24,6 +34,10 @@ import com.naver.maps.map.CameraPosition;
 import com.naver.maps.map.CameraUpdate;
 import com.naver.maps.map.NaverMap;
 import com.naver.maps.map.overlay.InfoWindow;
+import com.pedro.library.AutoPermissions;
+import com.pedro.library.AutoPermissionsListener;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,10 +49,14 @@ import ted.gun0912.clustering.clustering.TedClusterItem;
 import ted.gun0912.clustering.naver.TedNaverClustering;
 
 
-public class MapActivity extends BaseDemoActivity {
+public class MapActivity extends BaseDemoActivity implements AutoPermissionsListener {
     private static final String TAG = "MapActivity";
     private NaverMap naverMap;
     private FirebaseFirestore db;
+    private Location location;
+    private LocationManager lm;
+    private int permissionCheck;
+
 
     //툴바용 전역변수 설정
     private TextView logoText;
@@ -46,10 +64,11 @@ public class MapActivity extends BaseDemoActivity {
     private DrawerLayout mainDrawerLayout;
     private NavigationView mainNavigationView;
     private Toolbar toolbar;
-    private Context mapContext=MapActivity.this;
+    private Context mapContext = MapActivity.this;
+
 
     @Override
-    public  void onMapReady(@NonNull NaverMap naverMap) {
+    public void onMapReady(@NonNull NaverMap naverMap) {
         this.naverMap = naverMap;
 
         naverMap.moveCamera(
@@ -59,27 +78,27 @@ public class MapActivity extends BaseDemoActivity {
         initToolbar();
         setupToolbarNavigationView();
         getItems();
+        startLocationService();
 
+        AutoPermissions.Companion.loadAllPermissions(this, 101);
     }
 
     //툴바용 전역변수에 값 부여
-    private void initToolbar(){
-        logoText=findViewById(R.id.tv_logoText);
-        ivHamburgerButton=findViewById(R.id.iv_hamburgerButton);
-        ivToolbarSearchButton=findViewById(R.id.iv_toolbarSearchButton);
-        mainDrawerLayout=findViewById(R.id.layout_map_drawer);
-        toolbar=findViewById(R.id.toolbar_main);
-        mainNavigationView=findViewById(R.id.navigation);
-        ivLogoutButton=findViewById(R.id.iv_logoutButton);
+    private void initToolbar() {
+        logoText = findViewById(R.id.tv_logoText);
+        ivHamburgerButton = findViewById(R.id.iv_hamburgerButton);
+        ivToolbarSearchButton = findViewById(R.id.iv_toolbarSearchButton);
+        mainDrawerLayout = findViewById(R.id.layout_map_drawer);
+        toolbar = findViewById(R.id.toolbar_main);
+        mainNavigationView = findViewById(R.id.navigation);
+        ivLogoutButton = findViewById(R.id.iv_logoutButton);
 
     }
 
     //툴바 리스너
-    private void setupToolbarNavigationView(){
-        ToolbarNavigationHelper.enableNavigationHelper(mapContext,mainNavigationView,mainDrawerLayout,logoText,ivHamburgerButton,ivToolbarSearchButton,ivLogoutButton);
+    private void setupToolbarNavigationView() {
+        ToolbarNavigationHelper.enableNavigationHelper(mapContext, mainNavigationView, mainDrawerLayout, logoText, ivHamburgerButton, ivToolbarSearchButton, ivLogoutButton);
     }
-
-
 
 
     private List<House> getItems() {
@@ -96,18 +115,17 @@ public class MapActivity extends BaseDemoActivity {
                                 items.add(document.toObject(House.class));
 
                             }
-                            Log.d(TAG, "onComplete: ");
                             TedNaverClustering.with(mapContext, naverMap)
                                     .items(items)
                                     .markerClickListener(new Function1<TedClusterItem, Unit>() {
                                                              @Override
                                                              public Unit invoke(TedClusterItem item) {
-                                                                 House house=(House)item;
-                                                                 Log.d(TAG, "invoke: house : "+house.getId());
-                                                                 Intent intent=new Intent(mapContext, HouseDetailActivity.class);
-                                                                 intent.putExtra("id",house.getId());
-                                                                 intent.putExtra("lat",house.getLat());
-                                                                 intent.putExtra("lng",house.getLng());
+                                                                 House house = (House) item;
+                                                                 Log.d(TAG, "invoke: house : " + house.getId());
+                                                                 Intent intent = new Intent(mapContext, HouseDetailActivity.class);
+                                                                 intent.putExtra("id", house.getId());
+                                                                 intent.putExtra("lat", house.getLat());
+                                                                 intent.putExtra("lng", house.getLng());
                                                                  startActivity(intent);
                                                                  return null;
                                                              }
@@ -125,6 +143,63 @@ public class MapActivity extends BaseDemoActivity {
             }
         });
         return items;
+    }
+
+    public void startLocationService() {
+        //위치 관리자 객체 참조
+        lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        try {
+            GPSListener gpsListener = new GPSListener();
+            long minTime = 10000;
+            float minDistance = 0;
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                Log.d(TAG, "startLocationService: 님아 혹시 여기로 가냐...?");
+                return;
+            }
+            lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, minTime, minDistance, gpsListener);
+
+
+        }catch (Exception e){
+
+        }
+    }
+
+    class GPSListener implements LocationListener{
+
+        @Override
+        public void onLocationChanged(Location location) {
+            double lat=location.getLatitude();
+            double lng=location.getLongitude();
+            Log.d(TAG, "onLocationChanged: "+lat+lng);
+        }
+
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) { }
+
+        @Override
+        public void onProviderEnabled(String provider) { }
+
+        @Override
+        public void onProviderDisabled(String provider) { }
+
 
     }
+
+    @Override
+    public void onDenied(int i, @NotNull String[] strings) {
+
+    }
+
+    @Override
+    public void onGranted(int i, @NotNull String[] strings) {
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @androidx.annotation.NonNull String[] permissions, @androidx.annotation.NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        AutoPermissions.Companion.parsePermissions(MapActivity.this,requestCode,permissions, this);
+    }
+
 }
