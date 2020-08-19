@@ -12,6 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="1호"
+        android:textSize="18sp"
         android:padding="10dp"/>
 
     <TextView
@@ -20,6 +21,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="부산진구 중앙대로 어쩌고"
+        android:textSize="18sp"
         android:padding="10dp"/>
 
 
