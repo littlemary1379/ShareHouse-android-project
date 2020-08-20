@@ -152,7 +152,6 @@
                         android:id="@+id/et_login_account"
                         android:layout_width="280dp"
                         android:layout_height="wrap_content"
-                        android:inputType="textPassword"
                         android:hint="예) 농협 000-0000-0000000"
                         app:layout_constraintStart_toEndOf="@id/tv_login_account_title"
                         app:layout_constraintEnd_toEndOf="parent"

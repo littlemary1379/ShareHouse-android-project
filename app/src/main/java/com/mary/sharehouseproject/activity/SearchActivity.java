@@ -196,7 +196,7 @@ public class SearchActivity extends AppCompatActivity {
                                             HouseDetail houseDetail=document.toObject(HouseDetail.class);
                                             address=houseDetail.getAddress();
                                             //Log.d(TAG, "onComplete: "+databasePath);
-                                            getHouseId(databasePath);
+                                            getHouseId(databasePath, houseDetail);
                                         }
                                     }else{
                                         Log.d(TAG, "onComplete: 실패함");
@@ -221,9 +221,8 @@ public class SearchActivity extends AppCompatActivity {
                                         for(QueryDocumentSnapshot document:task.getResult()){
                                             databasePath=document.getReference().getPath();
                                             HouseDetail houseDetail=document.toObject(HouseDetail.class);
-                                            address=houseDetail.getAddress();
                                             //Log.d(TAG, "onComplete: "+databasePath);
-                                            getHouseId(databasePath);
+                                            getHouseId(databasePath, houseDetail);
                                         }
                                     }else{
                                         Log.d(TAG, "onComplete: 실패함");
@@ -253,7 +252,7 @@ public class SearchActivity extends AppCompatActivity {
                                             HouseDetail houseDetail=document.toObject(HouseDetail.class);
                                             address=houseDetail.getAddress();
                                             //Log.d(TAG, "onComplete: "+databasePath);
-                                            getHouseId(databasePath);
+                                            getHouseId(databasePath, houseDetail);
                                         }
                                     }else{
                                         Log.d(TAG, "onComplete: 실패함");
@@ -271,7 +270,7 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
     }
-    private void getHouseId(final String databasePath){
+    private void getHouseId(final String databasePath, final HouseDetail houseDetail){
         String[] pathArray=databasePath.split("/");
         String path1=pathArray[0];
         String path2=pathArray[1];
@@ -284,7 +283,7 @@ public class SearchActivity extends AppCompatActivity {
                         Log.d(TAG, "onSuccess: 성공"+documentSnapshot.getData());
                         House house=documentSnapshot.toObject(House.class);
 
-                        searchHouseDto=new SearchHouseDto(house.getId(),house.getHouseNumber(), address,house.getLat(),house.getLng());
+                        searchHouseDto=new SearchHouseDto(house.getId(),house.getHouseNumber(), houseDetail.getAddress(),house.getLat(),house.getLng());
                         searchHouseDtoList.add(searchHouseDto);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
