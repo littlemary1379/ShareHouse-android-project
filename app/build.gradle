@@ -8,22 +8,12 @@ android {
 
     defaultConfig {
         applicationId "com.mary.sharehouseproject"
-        minSdkVersion 24
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
-        splits {
-            abi {
-                enable true
-                reset()
-                include 'x86', 'armeabi-v7a', 'x86_64'
-                universalApk true
-            }
-
-        }
 
         buildTypes {
             release {
@@ -76,6 +66,9 @@ android {
 
         //자동 권한 부여
         implementation 'com.github.pedroSG94:AutoPermissions:1.0.3'
+
+        //캐러셀 화면 이동 라이브러리
+        implementation 'com.synnapps:carouselview:0.1.5'
 
     }
 

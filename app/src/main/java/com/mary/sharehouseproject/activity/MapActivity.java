@@ -1,12 +1,6 @@
 package com.mary.sharehouseproject.activity;
 
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -16,9 +10,11 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -33,13 +29,8 @@ import com.mary.sharehouseproject.util.ToolbarNavigationHelper;
 import com.naver.maps.geometry.LatLng;
 import com.naver.maps.geometry.LatLngBounds;
 import com.naver.maps.map.CameraPosition;
-import com.naver.maps.map.CameraUpdate;
 import com.naver.maps.map.NaverMap;
-import com.naver.maps.map.overlay.InfoWindow;
-import com.pedro.library.AutoPermissions;
-import com.pedro.library.AutoPermissionsListener;
 
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -93,16 +84,18 @@ public class MapActivity extends BaseDemoActivity implements LocationListener{
         }
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        //최초 위치값 확인
         if (location != null) {
             lat = location.getLatitude();
             lng = location.getLongitude();
             Log.d(TAG, "onMapReady: GPS: lat :" + lat + " lng : " + lng);
         }
+        //로케이션 서비스로 들어오는 모든 시스템 서비스의 프로바이더 확인
         listProviders = locationManager.getAllProviders();
-        boolean [] isEnable=new boolean[1];
+        //GPS 로케이션만 확인 해 장소가 바뀔 때 마다 로케이션을 업데이트 함
         for(int i=0; i<listProviders.size(); i++){
             if(listProviders.get(i).equals(LocationManager.GPS_PROVIDER)){
-                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0, this);
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,60000,0, this);
             }
         }
 
@@ -122,6 +115,7 @@ public class MapActivity extends BaseDemoActivity implements LocationListener{
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,this);
     }
 
+    //변경된 좌표값을 얻어오는 매서드
     @Override
     public void onLocationChanged(Location location) {
         lat=0;
@@ -147,22 +141,27 @@ public class MapActivity extends BaseDemoActivity implements LocationListener{
     @Override
     protected void onStart() {
         super.onStart();
+        //권한 확인
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)!=PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(this,Manifest.permission.ACCESS_COARSE_LOCATION)!=PackageManager.PERMISSION_GRANTED){
+            //권한이 없을 경우 최초 권한 요청 or 사용자에 의한 재요청 확인
             if(ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)
                     && ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.ACCESS_COARSE_LOCATION)){
-                    ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION},100);
+                //권한이 없을 경우 권한 재요청
+                ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION},100);
                     return;
             }
         }
     }
 
+    //생애 주기 : 앱이 멈췄을 때 업데이트 중지
     @Override
     protected void onPause() {
         super.onPause();
         locationManager.removeUpdates(this);
     }
 
+    //생애 주기 : 앱이 재시작 할 때 업데이트 재개
     @Override
     protected void onResume() {
         super.onResume();
@@ -195,7 +194,7 @@ public class MapActivity extends BaseDemoActivity implements LocationListener{
         ToolbarNavigationHelper.enableNavigationHelper(mapContext, mainNavigationView, mainDrawerLayout, logoText, ivHamburgerButton, ivToolbarSearchButton, ivLogoutButton);
     }
 
-
+    //데이터베이스의 값을 가져와 마커처리,
     private List<House> getItems() {
         db = FirebaseFirestore.getInstance();
         LatLngBounds bounds = naverMap.getContentBounds();
@@ -212,6 +211,7 @@ public class MapActivity extends BaseDemoActivity implements LocationListener{
                             }
                             TedNaverClustering.with(mapContext, naverMap)
                                     .items(items)
+                                   //마커 클릭 리스너
                                     .markerClickListener(new Function1<TedClusterItem, Unit>() {
                                                              @Override
                                                              public Unit invoke(TedClusterItem item) {
