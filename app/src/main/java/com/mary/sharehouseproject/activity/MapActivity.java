@@ -102,11 +102,9 @@ public class MapActivity extends BaseDemoActivity implements LocationListener{
         boolean [] isEnable=new boolean[1];
         for(int i=0; i<listProviders.size(); i++){
             if(listProviders.get(i).equals(LocationManager.GPS_PROVIDER)){
-                isEnable[0]=locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0, this);
             }
         }
-        Log.d(TAG, "onMapReady: "+listProviders.get(0)+"/"+String.valueOf(isEnable[0]));
 
         cameraPosition = new CameraPosition(
                 new LatLng(lat, lng),
@@ -171,9 +169,13 @@ public class MapActivity extends BaseDemoActivity implements LocationListener{
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)!=PackageManager.PERMISSION_GRANTED){
             return;
         }
-        //locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,(LocationListener)this);
-       // locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,0,0,(LocationListener)this);
-        //locationManager.requestLocationUpdates(LocationManager.PASSIVE_PROVIDER,0,0,(LocationListener)this);
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        listProviders = locationManager.getAllProviders();
+        for(int i=0; i<listProviders.size(); i++){
+            if(listProviders.get(i).equals(LocationManager.GPS_PROVIDER)){
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0, this);
+            }
+        }
     }
 
     //툴바용 전역변수에 값 부여
