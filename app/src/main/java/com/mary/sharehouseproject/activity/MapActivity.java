@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -29,6 +30,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.mary.sharehouseproject.R;
 import com.mary.sharehouseproject.model.House;
 import com.mary.sharehouseproject.util.ToolbarNavigationHelper;
+import com.naver.maps.geometry.LatLng;
 import com.naver.maps.geometry.LatLngBounds;
 import com.naver.maps.map.CameraPosition;
 import com.naver.maps.map.CameraUpdate;
@@ -38,6 +40,7 @@ import com.pedro.library.AutoPermissions;
 import com.pedro.library.AutoPermissionsListener;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,13 +52,16 @@ import ted.gun0912.clustering.clustering.TedClusterItem;
 import ted.gun0912.clustering.naver.TedNaverClustering;
 
 
-public class MapActivity extends BaseDemoActivity implements AutoPermissionsListener {
+public class MapActivity extends BaseDemoActivity implements LocationListener{
     private static final String TAG = "MapActivity";
     private NaverMap naverMap;
     private FirebaseFirestore db;
     private Location location;
-    private LocationManager lm;
-    private int permissionCheck;
+    private LocationManager locationManager;
+    private List<String> listProviders;
+    protected CameraPosition cameraPosition;
+    private double lat;
+    private double lng;
 
 
     //툴바용 전역변수 설정
@@ -66,21 +72,108 @@ public class MapActivity extends BaseDemoActivity implements AutoPermissionsList
     private Toolbar toolbar;
     private Context mapContext = MapActivity.this;
 
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Log.d(TAG, "onCreate: 이게 먼저니");
+        
+    }
 
     @Override
     public void onMapReady(@NonNull NaverMap naverMap) {
+        Log.d(TAG, "onMapReady: 이게 먼저니???");
         this.naverMap = naverMap;
 
-        naverMap.moveCamera(
-                CameraUpdate.toCameraPosition(
-                        new CameraPosition(NaverMap.DEFAULT_CAMERA_POSITION.target, NaverMap.DEFAULT_CAMERA_POSITION.zoom))
-        );
         initToolbar();
         setupToolbarNavigationView();
         getItems();
-        startLocationService();
 
-        AutoPermissions.Companion.loadAllPermissions(this, 101);
+        if (ActivityCompat.checkSelfPermission(mapContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        if (location != null) {
+            lat = location.getLatitude();
+            lng = location.getLongitude();
+            Log.d(TAG, "onMapReady: GPS: lat :" + lat + " lng : " + lng);
+        }
+        listProviders = locationManager.getAllProviders();
+        boolean [] isEnable=new boolean[1];
+        for(int i=0; i<listProviders.size(); i++){
+            if(listProviders.get(i).equals(LocationManager.GPS_PROVIDER)){
+                isEnable[0]=locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0, this);
+            }
+        }
+        Log.d(TAG, "onMapReady: "+listProviders.get(0)+"/"+String.valueOf(isEnable[0]));
+
+        cameraPosition = new CameraPosition(
+                new LatLng(lat, lng),
+                13
+        );
+
+        naverMap.setCameraPosition(cameraPosition);
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)!=PackageManager.PERMISSION_GRANTED){
+            return;
+        }
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,this);
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+        lat=0;
+        lng=0;
+
+        if(location.getProvider().equals(LocationManager.GPS_PROVIDER)){
+            lat=location.getLatitude();
+            lng=location.getLongitude();
+            Log.d(TAG, "onLocationChanged: GPS_PROVIDER : lat : "+lat+" lng :"+lng);
+        }
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)!=PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(this,Manifest.permission.ACCESS_COARSE_LOCATION)!=PackageManager.PERMISSION_GRANTED){
+            if(ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                    && ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.ACCESS_COARSE_LOCATION)){
+                    ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION},100);
+                    return;
+            }
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        locationManager.removeUpdates(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)!=PackageManager.PERMISSION_GRANTED){
+            return;
+        }
+        //locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,(LocationListener)this);
+       // locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,0,0,(LocationListener)this);
+        //locationManager.requestLocationUpdates(LocationManager.PASSIVE_PROVIDER,0,0,(LocationListener)this);
     }
 
     //툴바용 전역변수에 값 부여
@@ -145,61 +238,5 @@ public class MapActivity extends BaseDemoActivity implements AutoPermissionsList
         return items;
     }
 
-    public void startLocationService() {
-        //위치 관리자 객체 참조
-        lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        try {
-            GPSListener gpsListener = new GPSListener();
-            long minTime = 10000;
-            float minDistance = 0;
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                Log.d(TAG, "startLocationService: 님아 혹시 여기로 가냐...?");
-                return;
-            }
-            lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, minTime, minDistance, gpsListener);
-
-
-        }catch (Exception e){
-
-        }
-    }
-
-    class GPSListener implements LocationListener{
-
-        @Override
-        public void onLocationChanged(Location location) {
-            double lat=location.getLatitude();
-            double lng=location.getLongitude();
-            Log.d(TAG, "onLocationChanged: "+lat+lng);
-        }
-
-        @Override
-        public void onStatusChanged(String provider, int status, Bundle extras) { }
-
-        @Override
-        public void onProviderEnabled(String provider) { }
-
-        @Override
-        public void onProviderDisabled(String provider) { }
-
-
-    }
-
-    @Override
-    public void onDenied(int i, @NotNull String[] strings) {
-
-    }
-
-    @Override
-    public void onGranted(int i, @NotNull String[] strings) {
-
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @androidx.annotation.NonNull String[] permissions, @androidx.annotation.NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        AutoPermissions.Companion.parsePermissions(MapActivity.this,requestCode,permissions, this);
-    }
 
 }
